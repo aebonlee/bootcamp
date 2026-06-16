@@ -20,6 +20,7 @@ export default function Footer() {
                 <Link to="/curriculum">전체 커리큘럼</Link>
                 <Link to="/track/react">React 프론트엔드</Link>
                 <Link to="/track/ai">AI 웹 서비스</Link>
+                <Link to="/resources">자료 · 실습 예제</Link>
                 <Link to="/me">내 학습 현황</Link>
               </div>
             </div>
@@ -35,7 +36,7 @@ export default function Footer() {
         </div>
         <div style={{ height: 1, background: 'rgba(255,255,255,0.1)', margin: '40px 0 22px' }} />
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'space-between', color: '#6B7178', fontSize: 13 }}>
-          <span>© {new Date().getFullYear()} DreamIT Biz. WEB PRO 웹개발 부트캠프.</span>
+          <span>© {new Date().getFullYear()} DreamIT Biz. 부트캠프 — 웹개발 학습 플랫폼.</span>
           <span>Powered by React · Vite · Supabase</span>
         </div>
       </div>

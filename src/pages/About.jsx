@@ -19,10 +19,10 @@ export default function About() {
         <div style={{ position: 'relative', maxWidth: 1080, margin: '0 auto', padding: 'clamp(48px,8vw,120px) clamp(20px,5vw,56px) clamp(40px,6vw,80px)' }}>
           <Eyebrow>ABOUT</Eyebrow>
           <h1 style={{ margin: '14px 0 0', fontSize: 'clamp(34px,7vw,96px)', lineHeight: 0.96, letterSpacing: '-0.04em', fontWeight: 300, textTransform: 'uppercase' }}>
-            Become a<br /><span style={{ fontWeight: 800 }}>Web Pro</span>
+            Join the<br /><span style={{ fontWeight: 800 }}>Bootcamp</span>
           </h1>
           <p style={{ margin: '26px 0 0', maxWidth: 620, fontSize: 'clamp(15px,2vw,19px)', lineHeight: 1.75, color: '#6B7178' }}>
-            WEB PRO는 DreamIT Biz가 만든 실무형 웹 개발 학습 플랫폼입니다. React 프론트엔드와 생성형 AI 웹 서비스, 두 트랙을 통해 {CHAPTERS.length}개 챕터 {totalSec}개 강의로 웹 개발의 처음부터 끝까지를 다룹니다.
+            DreamIT 부트캠프는 DreamIT Biz가 만든 실무형 웹 개발 학습 플랫폼입니다. React 프론트엔드와 생성형 AI 웹 서비스, 두 트랙을 통해 {CHAPTERS.length}개 챕터 {totalSec}개 강의로 웹 개발의 처음부터 끝까지를 다룹니다.
           </p>
         </div>
       </section>
@@ -30,7 +30,7 @@ export default function About() {
       <section style={{ background: C.ink, color: '#fff', padding: 'clamp(60px,9vw,128px) 0' }}>
         <div style={{ maxWidth: 1080, margin: '0 auto', padding: '0 clamp(20px,5vw,56px)' }}>
           <Eyebrow>OUR APPROACH</Eyebrow>
-          <h2 style={{ margin: '14px 0 clamp(36px,5vw,56px)', fontSize: 'clamp(26px,4vw,48px)', fontWeight: 700, letterSpacing: '-0.03em' }}>WEB PRO가 학습을 설계하는 방식</h2>
+          <h2 style={{ margin: '14px 0 clamp(36px,5vw,56px)', fontSize: 'clamp(26px,4vw,48px)', fontWeight: 700, letterSpacing: '-0.03em' }}>부트캠프가 학습을 설계하는 방식</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 18 }}>
             {VALUES.map((v, i) => (
               <Reveal key={v.t} delay={i * 80} className="hov-lift" style={{ background: C.panel, border: '1px solid rgba(255,255,255,0.08)', borderRadius: 22, padding: 'clamp(28px,3vw,38px)', minHeight: 220 }}>

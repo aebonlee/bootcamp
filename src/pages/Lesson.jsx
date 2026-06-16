@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate, useNavigate } from 'react-router-dom'
 import { C, grad, trackColor, trackGrad } from '../theme'
 import { CHAPTERS, TRACKS, getChapter, byTrack } from '../data/curriculum'
+import { labsOf } from '../data/labs'
 import { Eyebrow, LevelBadge, TagRow } from '../components/ui'
 import Reveal from '../components/Reveal'
 import { useProgress } from '../hooks/useProgress'
@@ -108,6 +109,26 @@ export default function Lesson() {
           })}
         </div>
       </section>
+
+      {/* 실습 예제 */}
+      {labsOf(ch.id).length > 0 && (
+        <section style={{ maxWidth: 1080, margin: '0 auto', padding: 'clamp(20px,3vw,32px) clamp(20px,5vw,56px) 0' }}>
+          <Eyebrow color={tc}>HANDS-ON LABS</Eyebrow>
+          <h2 style={{ margin: '12px 0 clamp(22px,3vw,30px)', fontSize: 'clamp(22px,3vw,32px)', fontWeight: 700, letterSpacing: '-0.02em' }}>이 챕터의 실습 예제</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 14 }}>
+            {labsOf(ch.id).map((lab, i) => (
+              <Reveal key={i} delay={Math.min(i, 5) * 50} className="hov-lift" style={{ border: `1px solid ${C.line}`, borderRadius: 18, padding: '22px 24px', background: C.cream }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+                  <span style={{ width: 28, height: 28, borderRadius: 8, background: trackGrad(ch.track), color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800, flexShrink: 0 }}>{i + 1}</span>
+                  <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, lineHeight: 1.35 }}>{lab.title}</h3>
+                </div>
+                <p style={{ margin: '0 0 14px', fontSize: 14, lineHeight: 1.6, color: '#4A4F57' }}>{lab.desc}</p>
+                <TagRow tags={lab.stack} color={tc} />
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* PREV / NEXT */}
       <section style={{ maxWidth: 1080, margin: '0 auto', padding: '0 clamp(20px,5vw,56px) clamp(64px,10vw,120px)' }}>

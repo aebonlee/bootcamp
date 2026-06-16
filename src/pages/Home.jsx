@@ -41,11 +41,11 @@ export default function Home() {
         <div style={{ position: 'absolute', top: '-10%', left: '30%', width: '60%', height: '80%', background: 'radial-gradient(circle,rgba(75,134,255,0.1),transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', maxWidth: 1480, margin: '0 auto', padding: 'clamp(56px,9vw,124px) clamp(20px,5vw,56px) clamp(48px,7vw,96px)' }}>
           <p style={{ margin: 0, fontSize: 'clamp(14px,1.8vw,18px)', fontWeight: 600, color: '#3A3F49', animation: 'heroIn .7s both' }}>
-            React 프론트엔드 + AI 웹 서비스 <span style={{ color: C.orange, fontWeight: 800 }}>16챕터 62강의</span> 풀코스
+React · AI 웹 서비스 부트캠프 · <span style={{ color: C.orange, fontWeight: 800 }}>16챕터 62강의</span> 풀코스
           </p>
           <h1 style={{ margin: 'clamp(18px,3vw,32px) 0 0', fontWeight: 800, fontSize: 'clamp(46px,12vw,176px)', lineHeight: 0.9, letterSpacing: '-0.045em', color: C.ink, textTransform: 'uppercase' }}>
-            <span style={{ display: 'block', fontWeight: 300 }}>Build the</span>
-            <span style={{ display: 'block', animation: 'heroIn .9s .12s both' }}>Web Pro</span>
+            <span style={{ display: 'block', fontWeight: 300 }}>DreamIT</span>
+            <span style={{ display: 'block', animation: 'heroIn .9s .12s both' }}>Bootcamp</span>
           </h1>
           <div style={{ height: 1, background: 'rgba(10,11,13,0.14)', margin: 'clamp(30px,5vw,52px) 0 clamp(20px,3vw,26px)', transformOrigin: 'left', animation: 'growLine 1s .3s both' }} />
           <p style={{ margin: 0, maxWidth: 580, fontSize: 'clamp(15px,2vw,19px)', lineHeight: 1.7, color: '#6B7178', animation: 'heroIn .8s .25s both' }}>
@@ -122,7 +122,7 @@ export default function Home() {
         <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: 1, background: 'rgba(255,255,255,0.16)' }} />
         <div style={{ maxWidth: 1480, margin: '0 auto', padding: '0 clamp(20px,5vw,56px)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(320px,1fr))', gap: 'clamp(36px,5vw,64px)', alignItems: 'start' }}>
           <Reveal>
-            <Eyebrow color="#fff">WHY WEB PRO</Eyebrow>
+            <Eyebrow color="#fff">WHY BOOTCAMP</Eyebrow>
             <h2 style={{ margin: '18px 0 0', fontSize: 'clamp(36px,6vw,80px)', lineHeight: 0.98, letterSpacing: '-0.035em', textTransform: 'uppercase', fontWeight: 300 }}>
               Learn<br />Like a<br /><span style={{ fontWeight: 800 }}>Pro</span>
             </h2>
@@ -245,7 +245,7 @@ function Faq() {
               <img src="/assets/orn-rings.svg" alt="" style={{ position: 'absolute', right: -20, bottom: -20, width: 200, height: 200, opacity: 0.3, filter: 'brightness(2.5)' }} />
               <div style={{ position: 'relative', fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', opacity: 0.85 }}>ABOUT</div>
               <h3 style={{ position: 'relative', margin: '16px 0 0', fontSize: 'clamp(24px,3vw,36px)', fontWeight: 800, lineHeight: 1.22 }}>부트캠프는<br />어떻게 다른가</h3>
-              <p style={{ position: 'relative', margin: '16px 0 auto', fontSize: 15, color: 'rgba(255,255,255,0.9)' }}>WEB PRO의 학습 철학을 확인하세요.</p>
+              <p style={{ position: 'relative', margin: '16px 0 auto', fontSize: 15, color: 'rgba(255,255,255,0.9)' }}>부트캠프의 학습 철학을 확인하세요.</p>
               <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 24, padding: '12px 12px 12px 22px', borderRadius: 60, background: 'rgba(255,255,255,0.2)' }}>
                 <span style={{ fontWeight: 700, fontSize: 15 }}>소개 보기</span>
                 <span style={{ width: 40, height: 40, borderRadius: 99, background: 'rgba(255,255,255,0.22)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 17 }}>→</span>

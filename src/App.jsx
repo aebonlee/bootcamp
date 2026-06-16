@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Curriculum from './pages/Curriculum'
 import Track from './pages/Track'
 import Lesson from './pages/Lesson'
+import Resources from './pages/Resources'
 import Login from './pages/Login'
 import MyPage from './pages/MyPage'
 import About from './pages/About'
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/curriculum" element={<Curriculum />} />
         <Route path="/track/:track" element={<Track />} />
         <Route path="/lesson/:id" element={<Lesson />} />
+        <Route path="/resources" element={<Resources />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/auth/callback" element={<AuthCallback />} />

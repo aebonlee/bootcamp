@@ -13,7 +13,7 @@ export default function Logo({ dark = false }) {
         <rect x="12" y="9.6" width="16" height="4.8" rx="2.4" fill="currentColor" />
       </svg>
       <span style={{ fontWeight: 800, fontSize: 17, letterSpacing: '-0.02em', lineHeight: 1.02, textAlign: 'left' }}>
-        WEB<br />PRO
+        BOOT<br />CAMP
       </span>
     </span>
   )

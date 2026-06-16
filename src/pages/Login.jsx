@@ -61,7 +61,7 @@ export default function Login() {
           {err && <p style={{ margin: '18px 0 0', color: '#D92D20', fontSize: 13.5, lineHeight: 1.5 }}>로그인 오류: {err}</p>}
 
           <p style={{ margin: '28px 0 0', fontSize: 12.5, color: '#9CA2AD', lineHeight: 1.6 }}>
-            계속 진행하면 WEB PRO 부트캠프의 서비스 이용에 동의하는 것으로 간주됩니다.
+            계속 진행하면 DreamIT 부트캠프의 서비스 이용에 동의하는 것으로 간주됩니다.
           </p>
           <Link to="/" style={{ display: 'inline-block', marginTop: 18, fontSize: 14, color: '#6B7178', fontWeight: 600 }}>← 홈으로 돌아가기</Link>
         </div>

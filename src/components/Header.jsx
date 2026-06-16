@@ -8,6 +8,7 @@ const NAV = [
   { to: '/curriculum', label: 'CURRICULUM', ko: '커리큘럼' },
   { to: '/track/react', label: 'REACT', ko: '프론트엔드' },
   { to: '/track/ai', label: 'AI', ko: 'AI 서비스' },
+  { to: '/resources', label: 'RESOURCES', ko: '자료·실습' },
   { to: '/about', label: 'ABOUT', ko: '소개' },
 ]
 
