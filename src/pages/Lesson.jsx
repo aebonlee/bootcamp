@@ -96,8 +96,8 @@ export default function Lesson() {
         <div className="lesson-grid">
           {/* TOC */}
           <aside className="lesson-toc">
-            <div style={{ position: 'sticky', top: 96 }}>
-              <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', color: '#9CA2AD', margin: '0 0 14px' }}>목차 · CONTENTS</div>
+            <div className="toc-inner">
+              <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', color: '#9CA2AD', margin: '0 0 14px' }}>목차 · 진도 · CONTENTS</div>
               <nav style={{ display: 'flex', flexDirection: 'column', gap: 2, borderLeft: `2px solid ${C.line}`, paddingLeft: 2 }}>
                 {ch.sections.map((s) => {
                   const isDone = completed.has(s.no)

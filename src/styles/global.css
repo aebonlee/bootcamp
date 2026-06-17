@@ -56,9 +56,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 .lesson-grid { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
 /* 좌측 목차: 콘텐츠 컬럼과 동일한 상단 여백으로 정렬 */
 .lesson-toc { position: relative; padding-top: clamp(32px, 4vw, 52px); }
+.toc-inner { position: sticky; top: 96px; }
 @media (max-width: 880px) {
   .lesson-grid { grid-template-columns: 1fr; }
-  .lesson-toc { display: none; }
+  /* 모바일: 목차를 숨기지 않고 본문 위 카드로 노출 → 진도 체크 유지 */
+  .lesson-toc { padding: 16px 18px 8px; margin-top: 22px; border: 1px solid rgba(10,11,13,0.10); border-radius: 16px; background: #fafafb; }
+  .toc-inner { position: static; }
+  .toc-inner nav { max-height: 46vh; overflow-y: auto; }
 }
 /* 마크다운 코드블록 스크롤바 */
 .md-code::-webkit-scrollbar { height: 9px; }
