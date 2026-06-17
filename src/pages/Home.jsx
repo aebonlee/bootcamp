@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import { C, grad } from '../theme'
+import { C, grad, trackHero, trackGrad } from '../theme'
 import { CHAPTERS, TRACKS, byTrack, TOTAL_CHAPTERS, TOTAL_LESSONS } from '../data/curriculum'
 import { Eyebrow, ChapterCard } from '../components/ui'
 import Reveal from '../components/Reveal'
@@ -9,8 +9,8 @@ import { useProgress } from '../hooks/useProgress'
 const STACK = ['React 19', 'Vite', 'Supabase', 'FastAPI', 'Hugging Face', 'Tailwind', 'JavaScript', 'REST API']
 
 const FEATURES = [
-  { t: '실무 중심 커리큘럼', d: 'JSX 기초부터 인증·배포까지, 현업 프로젝트 흐름 그대로 설계된 16개 챕터.', orn: 'orn-bowtie.svg' },
-  { t: '프론트 + AI 두 트랙', d: 'React 프론트엔드와 FastAPI·Hugging Face 기반 생성형 AI 웹 서비스를 한 곳에서.', orn: 'orn-tunnel.svg' },
+  { t: '실무 중심 커리큘럼', d: `JSX 기초부터 인증·배포까지, 현업 프로젝트 흐름 그대로 설계된 ${TOTAL_CHAPTERS}개 챕터.`, orn: 'orn-bowtie.svg' },
+  { t: '프론트 · AI · 배포 세 트랙', d: 'React 프론트엔드, 생성형 AI 웹 서비스, 그리고 Git·AWS·Docker 실전 배포까지 한 곳에서.', orn: 'orn-tunnel.svg' },
   { t: `${TOTAL_LESSONS}개 강의 · 진도 관리`, d: '섹션 단위로 학습을 체크하고 트랙별 달성률을 한눈에 추적합니다.', orn: 'orn-rings.svg' },
   { t: '바로 쓰는 예제 코드', d: '감정분석 API, 이미지 생성, 멀티모달 챗봇 등 그대로 응용 가능한 실습 자료.', orn: 'orn-flower.svg' },
 ]
@@ -31,7 +31,7 @@ const FAQS = [
 
 export default function Home() {
   const { doneCount } = useProgress() || {}
-  const preview = [...byTrack('react').slice(0, 3), ...byTrack('ai').slice(0, 3)]
+  const preview = [...byTrack('react').slice(0, 2), ...byTrack('ai').slice(0, 2), ...byTrack('ops').slice(0, 2)]
 
   return (
     <main>
@@ -82,10 +82,10 @@ React · AI 웹 서비스 부트캠프 · <span style={{ color: C.orange, fontWe
           <Reveal style={{ textAlign: 'center', marginBottom: 'clamp(40px,5vw,60px)' }}>
             <Eyebrow>LEARNING TRACKS</Eyebrow>
             <h2 style={{ margin: '14px 0 0', fontSize: 'clamp(30px,5.5vw,68px)', lineHeight: 1, letterSpacing: '-0.035em', textTransform: 'uppercase', fontWeight: 300 }}>
-              두 개의 <span style={{ fontWeight: 800 }}>전문 트랙</span>
+              세 개의 <span style={{ fontWeight: 800 }}>전문 트랙</span>
             </h2>
             <p style={{ margin: '22px auto 0', maxWidth: 620, fontSize: 'clamp(15px,2vw,18px)', lineHeight: 1.7, color: '#9CA2AD' }}>
-              프론트엔드와 AI, 각자의 목표에 맞춰 선택하세요. 두 트랙 모두 <b style={{ color: '#fff' }}>개념 → 실습 → 프로젝트</b> 흐름으로 완성됩니다.
+              프론트엔드 · AI · 실전 배포, 각자의 목표에 맞춰 선택하세요. 모든 트랙이 <b style={{ color: '#fff' }}>개념 → 실습 → 프로젝트</b> 흐름으로 완성됩니다.
             </p>
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 'clamp(16px,2vw,24px)' }}>
@@ -96,18 +96,18 @@ React · AI 웹 서비스 부트캠프 · <span style={{ color: C.orange, fontWe
                 <Reveal key={tr.id} delay={idx * 90}>
                   <Link to={`/track/${tr.id}`} className="card-link" style={{
                     display: 'flex', flexDirection: 'column', minHeight: 320,
-                    background: tr.id === 'ai' ? grad.ai : 'linear-gradient(160deg,#16224A,#0A0B0D)',
+                    background: trackHero(tr.id),
                     border: `1px solid ${tr.color}55`, borderRadius: 26, padding: 'clamp(30px,3.4vw,46px)', color: '#fff', position: 'relative', overflow: 'hidden',
                   }}>
-                    <img src={`/assets/${tr.id === 'ai' ? 'orn-flower' : 'orn-rings'}.svg`} alt="" style={{ position: 'absolute', right: -30, bottom: -30, width: 200, height: 200, opacity: 0.22 }} />
-                    <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.16em', color: tr.id === 'ai' ? '#FFB37A' : '#8FB4FF' }}>{tr.en.toUpperCase()}</span>
+                    <img src={`/assets/${tr.id === 'ai' ? 'orn-flower' : tr.id === 'ops' ? 'orn-tunnel' : 'orn-rings'}.svg`} alt="" style={{ position: 'absolute', right: -30, bottom: -30, width: 200, height: 200, opacity: 0.22 }} />
+                    <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.16em', color: tr.id === 'ai' ? '#FFB37A' : tr.id === 'ops' ? '#5CE0A8' : '#8FB4FF' }}>{tr.en.toUpperCase()}</span>
                     <h3 style={{ margin: '16px 0 0', fontSize: 'clamp(26px,3vw,40px)', fontWeight: 800, letterSpacing: '-0.02em' }}>{tr.label}</h3>
                     <p style={{ margin: '16px 0 auto', maxWidth: 420, fontSize: 15.5, lineHeight: 1.7, color: 'rgba(255,255,255,0.82)' }}>{tr.desc}</p>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 28 }}>
                       <div style={{ display: 'flex', gap: 18, fontSize: 14, fontWeight: 600, color: 'rgba(255,255,255,0.9)' }}>
                         <span>{chs.length}개 챕터</span><span>{totalSec}개 강의</span>
                       </div>
-                      <span style={{ width: 46, height: 46, borderRadius: 99, background: tr.id === 'ai' ? 'linear-gradient(135deg,#FF7A1E,#E0470A)' : grad.blue, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>→</span>
+                      <span style={{ width: 46, height: 46, borderRadius: 99, background: trackGrad(tr.id), display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>→</span>
                     </div>
                   </Link>
                 </Reveal>
@@ -234,7 +234,7 @@ function Faq() {
             <Link to="/curriculum" className="cta-pill" style={{ background: grad.blueSoft, borderRadius: 24, padding: 'clamp(30px,3.4vw,44px)', color: '#fff', position: 'relative', overflow: 'hidden', flex: 1.3, minHeight: 280, display: 'flex', flexDirection: 'column' }}>
               <img src="/assets/silk.svg" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3, filter: 'invert(1)' }} />
               <div style={{ position: 'relative', fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', opacity: 0.85 }}>CURRICULUM</div>
-              <h3 style={{ position: 'relative', margin: '16px 0 0', fontSize: 'clamp(24px,3vw,36px)', fontWeight: 800, lineHeight: 1.22 }}>16개 챕터를<br />한눈에 보기</h3>
+              <h3 style={{ position: 'relative', margin: '16px 0 0', fontSize: 'clamp(24px,3vw,36px)', fontWeight: 800, lineHeight: 1.22 }}>{TOTAL_CHAPTERS}개 챕터를<br />한눈에 보기</h3>
               <p style={{ position: 'relative', margin: '16px 0 auto', fontSize: 15, color: 'rgba(255,255,255,0.85)' }}>나에게 맞는 강의를 골라보세요.</p>
               <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 24, padding: '12px 12px 12px 22px', borderRadius: 60, background: 'rgba(255,255,255,0.16)' }}>
                 <span style={{ fontWeight: 700, fontSize: 15 }}>커리큘럼 보기</span>

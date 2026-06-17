@@ -19,7 +19,7 @@ export default function Resources() {
             학습 자료 &<br /><span style={{ fontWeight: 800 }}>실습 예제</span>
           </h1>
           <p style={{ margin: '24px 0 0', maxWidth: 680, fontSize: 'clamp(15px,2vw,18px)', lineHeight: 1.7, color: '#9CA2AD' }}>
-            부트캠프의 모든 강의 내용을 웹에서 바로 학습하세요. 16개 챕터 · {totalSec}개 강의 · {totalLabs}개 실습 예제의 본문과 코드를 챕터별로 상세히 제공합니다.
+            부트캠프의 모든 강의 내용을 웹에서 바로 학습하세요. {CHAPTERS.length}개 챕터 · {totalSec}개 강의 · {totalLabs}개 실습 예제의 본문과 코드를 챕터별로 상세히 제공합니다.
           </p>
           <div style={{ display: 'flex', gap: 28, marginTop: 30, flexWrap: 'wrap' }}>
             {[['챕터', '16개'], ['강의', `${totalSec}개`], ['실습 예제', `${totalLabs}개`]].map(([k, v]) => (

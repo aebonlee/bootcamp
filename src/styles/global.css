@@ -39,7 +39,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .navlink:hover { opacity: 1 !important; }
 .cta-pill { transition: filter .2s; }
 .cta-pill:hover { filter: brightness(1.08); }
-@media (max-width: 1024px) {
+@media (max-width: 1180px) {
   .desknav { display: none !important; }
   .burger { display: inline-flex !important; }
 }

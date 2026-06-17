@@ -6,6 +6,9 @@ import { useAuth } from '../hooks/useAuth'
 
 const NAV = [
   { to: '/curriculum', label: 'CURRICULUM', ko: '커리큘럼' },
+  { to: '/track/react', label: 'REACT', ko: '프론트엔드' },
+  { to: '/track/ai', label: 'AI', ko: 'AI 서비스' },
+  { to: '/track/ops', label: 'DEPLOY', ko: '배포·협업' },
   { to: '/projects', label: 'PROJECTS', ko: '프로젝트' },
   { to: '/quiz', label: 'QUIZ', ko: '복습·퀴즈' },
   { to: '/resources', label: 'RESOURCES', ko: '자료·실습' },
@@ -43,7 +46,7 @@ export default function Header() {
           <div style={{ padding: '0 clamp(16px,2vw,28px)', height: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20 }}>
             <Link to="/" aria-label="홈"><Logo /></Link>
 
-            <nav className="desknav" style={{ alignItems: 'center', gap: 'clamp(8px,1.5vw,24px)' }}>
+            <nav className="desknav" style={{ alignItems: 'center', gap: 'clamp(7px,1vw,18px)' }}>
               {NAV.map((n) => (
                 <Link key={n.to} to={n.to} className="navlink"
                   style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', lineHeight: 1.05, color: '#15171C', opacity: loc.pathname.startsWith(n.to) ? 1 : 0.78 }}>

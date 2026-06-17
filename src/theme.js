@@ -29,6 +29,13 @@ export const MAXW = 1480
 export const font = '"Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif'
 
 // 트랙별 강조색
-export const trackColor = (t) => (t === 'ai' ? C.orange2 : C.blueD)
+export const trackColor = (t) => (t === 'ai' ? C.orange2 : t === 'ops' ? '#0E9F6E' : C.blueD)
 export const trackGrad = (t) =>
-  t === 'ai' ? 'linear-gradient(135deg,#FF7A1E,#E0470A)' : grad.blue
+  t === 'ai' ? 'linear-gradient(135deg,#FF7A1E,#E0470A)'
+    : t === 'ops' ? 'linear-gradient(135deg,#22C58A,#0E8F63)'
+    : grad.blue
+// 강의/트랙 히어로 배경 그라데이션
+export const trackHero = (t) =>
+  t === 'ai' ? grad.ai
+    : t === 'ops' ? 'linear-gradient(160deg,#0C3D2E,#0A0B0D)'
+    : 'linear-gradient(160deg,#16224A,#0A0B0D)'

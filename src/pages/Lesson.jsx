@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link, Navigate, useNavigate, useLocation } from 'react-router-dom'
-import { C, grad, trackColor, trackGrad } from '../theme'
+import { C, grad, trackColor, trackGrad, trackHero } from '../theme'
 import { TRACKS, getChapter, byTrack } from '../data/curriculum'
 import { labsOf } from '../data/labs'
 import { loadContent } from '../content'
@@ -64,19 +64,19 @@ export default function Lesson() {
   return (
     <main style={{ background: '#fff', color: C.ink }}>
       {/* HERO */}
-      <section style={{ background: ch.track === 'ai' ? grad.ai : 'linear-gradient(160deg,#16224A,#0A0B0D)', color: '#fff', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: trackHero(ch.track), color: '#fff', position: 'relative', overflow: 'hidden' }}>
         <img src="/assets/silk.svg" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.18 }} />
         <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: 'clamp(40px,6vw,84px) clamp(20px,5vw,56px) clamp(34px,5vw,56px)' }}>
           <Link to={`/track/${ch.track}`} style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.72)', fontWeight: 600 }}>← {tr.label}</Link>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 18 }}>
-            <span style={{ fontWeight: 800, fontSize: 14, color: ch.track === 'ai' ? '#FFB37A' : '#8FB4FF', letterSpacing: '0.04em' }}>
+            <span style={{ fontWeight: 800, fontSize: 14, color: ch.track === 'ai' ? '#FFB37A' : ch.track === 'ops' ? '#5CE0A8' : '#8FB4FF', letterSpacing: '0.04em' }}>
               {tr.en.toUpperCase()} · CHAPTER {String(ch.no).padStart(2, '0')}
             </span>
             <LevelBadge level={ch.level} track={ch.track} />
           </div>
           <h1 style={{ margin: '14px 0 0', fontSize: 'clamp(28px,4.5vw,52px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}>{ch.title}</h1>
           <p style={{ margin: '18px 0 0', maxWidth: 760, fontSize: 'clamp(15px,2vw,17px)', lineHeight: 1.75, color: 'rgba(255,255,255,0.85)' }}>{ch.summary}</p>
-          <div style={{ marginTop: 22 }}><TagRow tags={ch.tags} color={ch.track === 'ai' ? '#FFB37A' : '#8FB4FF'} /></div>
+          <div style={{ marginTop: 22 }}><TagRow tags={ch.tags} color={ch.track === 'ai' ? '#FFB37A' : ch.track === 'ops' ? '#5CE0A8' : '#8FB4FF'} /></div>
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 18, marginTop: 26 }}>
             <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)' }}>{total}개 강의 · {ch.duration}</span>
             {user && (

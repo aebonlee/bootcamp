@@ -991,12 +991,682 @@ export const CHAPTERS = [
         ]
       }
     ]
+  },
+  {
+    "id": "ops-01",
+    "track": "ops",
+    "no": 1,
+    "title": "Git & GitHub 입문",
+    "summary": "버전 관리의 개념부터 Git의 동작 원리, 브랜치와 병합, GitHub 협업, 좋은 커밋 습관과 오픈소스 라이선스, 그리고 실수 복구를 위한 고급 기능까지 한 번에 익히는 입문 가이드입니다. 명령어 암기보다 동작 원리 이해에 초점을 맞춰, 초보자가 혼자서도 Git을 실전에 쓸 수 있도록 구성했습니다.",
+    "duration": "약 3시간",
+    "level": "입문",
+    "tags": [
+      "Git",
+      "GitHub",
+      "버전관리",
+      "브랜치",
+      "Pull Request"
+    ],
+    "sections": [
+      {
+        "no": "1.1",
+        "title": "버전 관리란?",
+        "summary": "버전 관리는 파일의 변경 이력을 시간순으로 기록·추적하는 시스템입니다. 파일을 복사해 이름을 바꿔가며 관리하던 혼란을 끝내고, 이력 추적·협업·안전망이라는 세 가지 가치를 제공합니다.",
+        "points": [
+          "변경을 스냅샷으로 저장해 언제든 비교·복원 가능",
+          "여러 사람이 충돌 없이 동시에 작업하는 협업 기반",
+          "마음껏 실험하고 잘못되면 되돌리는 안전망 역할"
+        ]
+      },
+      {
+        "no": "1.2",
+        "title": "Git vs GitHub",
+        "summary": "Git은 내 컴퓨터에서 동작하는 버전 관리 도구이고, GitHub는 Git 저장소를 클라우드에 호스팅하며 협업을 돕는 플랫폼입니다. Git이 먼저이고 GitHub는 협업·공유가 필요할 때 더하는 선택입니다.",
+        "points": [
+          "Git = 로컬에서 도는 도구(엔진), GitHub = 클라우드 협업 플랫폼",
+          "Git만으로도 버전 관리는 완전하게 동작",
+          "GitHub는 코드 리뷰·이슈·PR 등 협업 기능 제공"
+        ]
+      },
+      {
+        "no": "1.3",
+        "title": "Git의 3가지 영역과 첫 커밋",
+        "summary": "변경은 작업 디렉터리 → 스테이징 영역 → 저장소 순으로 흐릅니다. git add로 스테이징, git commit으로 저장소에 기록하며, 스테이징 단계 덕분에 변경 일부만 골라 커밋할 수 있습니다.",
+        "points": [
+          "작업 디렉터리·스테이징 영역·저장소 3단계 흐름 이해",
+          "git init → git add . → git commit -m 으로 첫 커밋 만들기",
+          "git status로 상태를 자주 확인하고 user.name/email 초기 설정"
+        ]
+      },
+      {
+        "no": "1.4",
+        "title": "브랜치와 병합",
+        "summary": "브랜치는 메인 코드를 건드리지 않고 새 작업을 위한 평행 세계를 만드는 기능입니다. switch -c로 브랜치를 만들어 작업하고, merge로 결과를 메인에 합칩니다.",
+        "points": [
+          "git switch -c 로 새 브랜치 생성 및 전환",
+          "git merge 로 브랜치 변경을 현재 브랜치에 병합",
+          "git log --graph 로 브랜치 갈라짐·합쳐짐 시각화"
+        ]
+      },
+      {
+        "no": "1.5",
+        "title": "병합 충돌 해결",
+        "summary": "두 브랜치가 같은 부분을 다르게 고치면 병합 충돌이 발생합니다. 충돌은 오류가 아니라 정상적인 협업 과정이며, Git이 표시한 부분을 정리한 뒤 다시 커밋하면 됩니다.",
+        "points": [
+          "충돌 표시 <<<<<<< HEAD / ======= / >>>>>>> 의미 이해",
+          "원하는 코드만 남기고 표시 줄을 모두 삭제",
+          "정리 후 git add . && git commit, 취소는 git merge --abort"
+        ]
+      },
+      {
+        "no": "1.6",
+        "title": "GitHub & 원격 저장소",
+        "summary": "로컬 저장소를 GitHub 원격 저장소와 연결해 코드를 클라우드에 보관하고 공유합니다. 연결 별칭은 origin, 올릴 땐 push, 받을 땐 pull을 사용합니다.",
+        "points": [
+          "github.com 가입 → New repository(README·.gitignore) 생성",
+          "git remote add origin <url> 로 원격 연결",
+          "git push -u origin main / git pull / git clone 으로 동기화"
+        ]
+      },
+      {
+        "no": "1.7",
+        "title": "GitHub 협업: Fork · Pull Request · Issue",
+        "summary": "협업의 표준 흐름은 Fork → Branch → Push → Pull Request → Review & Merge 입니다. Fork로 원본을 복사하고, PR로 변경을 제안하며, Issue로 할 일을 기록하고 권한을 단계적으로 부여합니다.",
+        "points": [
+          "Fork로 남의 저장소를 내 계정에 복사 후 브랜치 작업",
+          "Pull Request로 '합쳐 주세요' 제안 + 코드 리뷰 요청",
+          "Issue로 버그·요청 기록, 권한은 Read → Write → Admin 단계"
+        ]
+      },
+      {
+        "no": "1.8",
+        "title": "좋은 커밋 메시지와 오픈소스 라이선스",
+        "summary": "커밋 메시지는 제목 50자 이내·명령형으로 '무엇을 왜'를 적고, 커밋 하나엔 논리적 변경 하나만 담습니다. 대표 라이선스 MIT·Apache 2.0·GPL의 차이를 이해하고 코드를 공개합니다.",
+        "points": [
+          "제목 50자 이내·명령형, 커밋 하나에 논리적 변경 하나",
+          "MIT는 가장 자유, Apache 2.0은 특허 보호 조항 추가",
+          "GPL은 카피레프트로 파생물도 같은 라이선스 공개 의무"
+        ]
+      },
+      {
+        "no": "1.9",
+        "title": "고급 기능과 트러블슈팅",
+        "summary": "stash·rebase·hooks·blame/bisect 같은 고급 기능으로 실무에 유연하게 대처합니다. 실수로 reset하거나 브랜치를 지워도 reflog가 거의 모든 기록을 갖고 있어 복구할 수 있습니다.",
+        "points": [
+          "git stash로 작업 임시 보관, git rebase로 이력 직선 정리(공유 브랜치 금지)",
+          "git revert로 안전하게 커밋 되돌리기",
+          "git reflog + git checkout 으로 잃어버린 커밋 되살리기"
+        ]
+      },
+      {
+        "no": "1.10",
+        "title": "명령어 치트시트와 다음 단계",
+        "summary": "시작·커밋·이력·브랜치·원격·되돌리기로 분류한 핵심 명령어를 한눈에 정리합니다. 매일 커밋하기, good first issue 해결, 공식 문서 활용으로 학습을 이어갑니다.",
+        "points": [
+          "용도별 치트시트로 자주 쓰는 명령 빠르게 참조",
+          "작은 프로젝트를 GitHub에 올려 매일 커밋하는 습관",
+          "오픈소스 good first issue 해결, 공식 문서·커뮤니티 활용"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ops-02",
+    "track": "ops",
+    "no": 2,
+    "title": "AI 챗봇 배포 (FastAPI + Gradio)",
+    "summary": "Hugging Face 오픈소스 모델(Qwen2.5)을 4-bit 양자화로 경량화하고, FastAPI 백엔드와 Gradio UI를 단일 포트에 통합한 AI 챗봇을 만듭니다. 로컬에서 구동·검증한 뒤 허깅페이스 스페이스에 Docker 방식으로 무료 배포하는 전 과정을 실습합니다.",
+    "duration": "약 3시간",
+    "level": "중급",
+    "tags": [
+      "FastAPI",
+      "Gradio",
+      "Hugging Face",
+      "Spaces",
+      "4-bit 양자화"
+    ],
+    "sections": [
+      {
+        "no": "1.1",
+        "title": "개발 환경 구성",
+        "summary": "Python 가상 환경을 만들어 의존성을 격리하고, 웹 서버·UI·AI 구동에 필요한 핵심 패키지를 설치합니다.",
+        "points": [
+          "python -m venv 로 가상 환경을 생성하고 OS별(Windows / macOS·Linux)로 활성화합니다.",
+          "fastapi·uvicorn·gradio 로 웹 서버와 챗봇 UI 환경을 구성합니다.",
+          "CUDA 12.1용 torch와 transformers·accelerate·bitsandbytes(4-bit 양자화)를 설치합니다."
+        ]
+      },
+      {
+        "no": "1.2",
+        "title": "main.py 소스 코드 작성",
+        "summary": "FastAPI 위에 Gradio를 마운트하여 단일 포트(8000)에서 API와 챗봇 화면이 함께 구동되는 애플리케이션을 작성합니다.",
+        "points": [
+          "BitsAndBytesConfig로 load_in_4bit·NF4 양자화를 설정해 일반 PC에서도 모델을 로드합니다.",
+          "generate_response 함수에서 apply_chat_template·model.generate로 한국어 응답을 생성합니다.",
+          "gr.mount_gradio_app으로 Gradio UI를 루트(/)에 마운트하고 /api/health 헬스체크를 추가합니다."
+        ]
+      },
+      {
+        "no": "1.3",
+        "title": "로컬 서버 실행 및 접속",
+        "summary": "uvicorn으로 FastAPI+Gradio 서버를 실행하고 브라우저 접속으로 챗봇 동작을 확인합니다.",
+        "points": [
+          "uvicorn main:app --host 0.0.0.0 --port 8000 명령으로 서버를 시작합니다.",
+          "최초 실행 시 약 14GB 모델을 다운로드하므로 5~20분이 소요되고 이후엔 캐시에서 즉시 로드됩니다.",
+          "localhost:8000에서 챗봇 UI를, /api/health에서 JSON 헬스체크 응답을 확인합니다."
+        ]
+      },
+      {
+        "no": "1.4",
+        "title": "FastAPI + Gradio 허깅페이스 스페이스 배포",
+        "summary": "main.py·requirements.txt·Dockerfile 3종 파일로 허깅페이스 스페이스에 Docker 방식으로 무료 배포합니다.",
+        "points": [
+          "requirements.txt와 7860 포트를 노출하는 Dockerfile을 작성합니다(레이어 캐시 활용).",
+          "New Space 생성 시 SDK는 Gradio가 아닌 Docker, 하드웨어는 무료 CPU basic을 선택합니다.",
+          "파일 업로드 후 자동 빌드가 Running이 되면 앱과 /docs(Swagger UI)를 확인합니다."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ops-03",
+    "track": "ops",
+    "no": 3,
+    "title": "AWS EC2 · Docker · WinSCP 배포",
+    "summary": "AWS EC2 인스턴스 생성부터 탄력적 IP 할당, SSH 접속, Docker 엔진 설치, docker-compose 기반 풀스택 서비스 실행까지 모든 AWS 배포의 공통 기반을 실습합니다. 이어 Windows용 GUI 도구 WinSCP로 같은 서버에 SFTP 접속하여 Docker를 설치하고 DockerHub 이미지로 서비스를 배포하는 방법을 다룹니다.",
+    "duration": "약 3.5시간",
+    "level": "중급",
+    "tags": [
+      "AWS EC2",
+      "Docker",
+      "docker-compose",
+      "WinSCP",
+      "SSH"
+    ],
+    "sections": [
+      {
+        "no": "2.1",
+        "title": "EC2 인스턴스 생성",
+        "summary": "AWS 콘솔에서 서울 리전에 Ubuntu 기반 EC2 인스턴스를 생성하고 키 페어와 보안 그룹을 설정합니다.",
+        "points": [
+          "AWS Management Console 로그인 후 리전을 '서울(ap-northeast-2)'로 확인하고 EC2 대시보드에서 인스턴스 시작",
+          "AMI는 Ubuntu Server 22.04/24.04 LTS, 인스턴스 유형은 t2.micro(프리 티어) 또는 t3.small(AI 서비스) 선택",
+          "키 페어는 RSA·.pem 형식으로 새로 생성하여 안전하게 보관(분실 시 재발급 불가)",
+          "보안 그룹에서 SSH(22)·HTTP(80)·HTTPS(443) 포트 허용 체크"
+        ]
+      },
+      {
+        "no": "2.2",
+        "title": "고정 IP(탄력적 IP) 할당",
+        "summary": "재시작마다 바뀌는 공인 IP 문제를 해결하기 위해 탄력적 IP(Elastic IP)를 발급하여 인스턴스에 연결합니다.",
+        "points": [
+          "기본 EC2는 재시작 시 공인 IP가 바뀌므로 안정적 서비스 운영에 탄력적 IP 필요",
+          "[네트워크 및 보안] → [탄력적 IP]에서 주소를 할당",
+          "[작업] → [탄력적 IP 주소 연결]로 생성한 EC2 인스턴스의 프라이빗 IP에 연결",
+          "할당된 탄력적 IP 주소를 메모하여 SSH 접속과 브라우저 접속에 사용"
+        ]
+      },
+      {
+        "no": "2.3",
+        "title": "SSH를 통한 EC2 서버 접속",
+        "summary": "다운로드한 .pem 키 페어로 macOS/Linux 및 Windows에서 EC2 서버에 원격 SSH 접속합니다.",
+        "points": [
+          "chmod 400으로 .pem 파일을 소유자 읽기 전용으로 제한(없으면 SSH가 접속 거부)",
+          "ssh -i \"key.pem\" ubuntu@[탄력적_IP] 형식으로 접속, ubuntu는 Ubuntu AMI 기본 관리자 계정",
+          "최초 접속 시 fingerprint 신뢰 여부에 yes 입력",
+          "Windows 10 이상은 OpenSSH가 내장되어 동일한 ssh 명령으로 접속 가능"
+        ]
+      },
+      {
+        "no": "2.4",
+        "title": "Docker 엔진 설치",
+        "summary": "Docker 공식 저장소를 등록하고 Docker Engine과 Compose 플러그인을 설치하여 컨테이너 기반 환경을 구성합니다.",
+        "points": [
+          "apt 업데이트 후 apt-transport-https·ca-certificates·curl 등 필수 도구 설치",
+          "Docker 공식 GPG 키 추가 및 아키텍처·코드명 자동 감지로 저장소 등록",
+          "docker-ce·docker-ce-cli·containerd.io·docker-compose-plugin 설치",
+          "usermod -aG docker $USER로 sudo 없이 docker 사용, 적용 위해 재접속 후 docker --version·docker compose version·docker ps로 확인"
+        ]
+      },
+      {
+        "no": "2.5",
+        "title": "docker-compose.yml 작성 및 서비스 실행",
+        "summary": "DockerHub 이미지를 사용해 db·backend·frontend 3개 서비스를 한 번에 실행하는 docker-compose.yml을 작성하고 배포합니다.",
+        "points": [
+          "nano로 작성: db(postgres:15, pgdata 볼륨), backend(DATABASE_URL·depends_on db), frontend(80:80 포트)",
+          "your_docker_id를 본인 DockerHub 계정 ID로 변경, volumes로 DB 데이터 영속화",
+          "docker compose up -d로 백그라운드 실행(이미지 없으면 DockerHub에서 자동 다운로드)",
+          "docker compose ps로 모든 컨테이너 Up 확인 후 http://[탄력적_IP]로 서비스 접속"
+        ]
+      },
+      {
+        "no": "3.1",
+        "title": "WinSCP 설치 및 EC2 접속",
+        "summary": "GUI SFTP 클라이언트 WinSCP를 설치하고 .pem 키를 등록하여 EC2 서버에 SFTP로 접속합니다.",
+        "points": [
+          "winscp.net에서 무료 다운로드 후 설치, 프로토콜 SFTP·포트 22·사용자 ubuntu로 접속 설정",
+          "호스트 이름에 AWS 탄력적 IP 입력, 비밀번호는 비우고 키 파일 사용",
+          "[고급] → [SSH] → [인증]에서 개인 키 파일에 .pem 등록('모든 파일' 형식으로 선택)",
+          ".ppk 변환 안내창에서 확인 후 세션 저장·로그인, 좌측=내 PC·우측=EC2 서버 파일 시스템 표시"
+        ]
+      },
+      {
+        "no": "3.2",
+        "title": "WinSCP 터미널로 Docker 설치",
+        "summary": "WinSCP 내장 터미널 또는 PuTTY를 열어 2.4와 동일한 명령으로 EC2 서버에 Docker를 설치합니다.",
+        "points": [
+          "상단 툴바 [터미널 열기](Ctrl+T) 또는 [PuTTY에서 열기](Ctrl+P)로 터미널 실행",
+          "2.4와 동일한 Docker 설치 명령어 일괄 복사·붙여넣기 실행",
+          "설치 후 반드시 WinSCP를 완전히 종료(X) 후 재실행하여 docker 그룹 권한을 새 세션에 적용",
+          "재접속 후 docker ps가 오류 없이 빈 테이블을 출력하면 설치 완료"
+        ]
+      },
+      {
+        "no": "3.3",
+        "title": "docker-compose.yml 파일 전송 및 배포",
+        "summary": "로컬 PC에서 작성한 docker-compose.yml을 WinSCP 드래그 앤 드롭으로 EC2에 전송하고 서비스를 실행합니다.",
+        "points": [
+          "로컬 PC에서 db·backend·frontend 구성의 docker-compose.yml 작성",
+          "WinSCP 좌측(내 PC) 파일을 우측 /home/ubuntu 경로로 드래그 앤 드롭하여 업로드",
+          "터미널에서 ls -la로 전송 확인 후 docker compose up -d로 백그라운드 실행",
+          "docker compose ps로 모든 컨테이너 Up 확인, http://[탄력적_IP]로 브라우저 접속 검증"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ops-04",
+    "track": "ops",
+    "no": 4,
+    "title": "프레임워크별 AWS 배포 (HTML·Vue·Spring)",
+    "summary": "순수 HTML5 정적 사이트, Vue.js SPA, Spring Boot 3 백엔드를 각각 AWS EC2에 직접 배포하는 방법을 다룹니다. Nginx 설치·파일 업로드부터 Vue Router 404 방지 설정, Java 21 설치와 .jar 실행, 리버스 프록시 구성까지 Docker 없는 네이티브 배포 전 과정을 실습합니다.",
+    "duration": "약 4시간",
+    "level": "실전",
+    "tags": [
+      "Nginx",
+      "Vue.js",
+      "Spring Boot",
+      "Java 21",
+      "리버스 프록시"
+    ],
+    "sections": [
+      {
+        "no": "4.1",
+        "title": "EC2 서버에 Nginx 설치",
+        "summary": "EC2에 접속하여 apt로 Nginx를 설치하고 /var/www/html 폴더의 소유권을 ubuntu 유저에게 부여해 업로드 권한을 확보합니다.",
+        "points": [
+          "sudo apt update 후 sudo apt install nginx -y로 Nginx 설치",
+          "/var/www/html은 Nginx 기본 정적 파일 제공 디렉터리",
+          "sudo chown -R ubuntu:ubuntu /var/www/html로 소유권 변경",
+          "소유권을 바꾸지 않으면 WinSCP 업로드 시 권한 오류 발생"
+        ]
+      },
+      {
+        "no": "4.2",
+        "title": "HTML 파일 업로드 (WinSCP)",
+        "summary": "WinSCP GUI로 서버의 /var/www/html에 이동해 기본 환영 페이지를 삭제하고 로컬 HTML/CSS/JS 파일을 드래그 앤 드롭으로 업로드합니다.",
+        "points": [
+          "오른쪽 창에서 /var/www/html 경로로 이동",
+          "index.nginx-debian.html 기본 환영 페이지 삭제",
+          "index.html, css, js, images 등 모든 웹 파일을 드래그 앤 드롭 업로드",
+          "http://[탄력적_IP_주소]로 접속해 배포 확인"
+        ]
+      },
+      {
+        "no": "5.1",
+        "title": "Vue.js 프로젝트 빌드",
+        "summary": "로컬 PC에서 npm run build로 Vue.js SPA를 최적화·압축된 정적 파일로 빌드하면 dist 폴더에 배포용 결과물이 생성됩니다.",
+        "points": [
+          "cd로 프로젝트 폴더 이동 후 npm run build 실행",
+          "Vite/Webpack이 코드를 최적화·압축",
+          "결과물은 dist/ 폴더에 index.html과 assets/ 형태로 생성",
+          "dist 폴더 내부 파일 전체가 배포 대상"
+        ]
+      },
+      {
+        "no": "5.2",
+        "title": "EC2 서버에 Nginx 설치 및 파일 업로드",
+        "summary": "EC2에 Nginx를 설치하고 폴더 권한을 설정한 뒤, dist 폴더 자체가 아닌 그 내부의 index.html과 assets 폴더를 /var/www/html에 업로드합니다.",
+        "points": [
+          "apt로 Nginx 설치 및 /var/www/html 소유권 변경",
+          "기존 index.nginx-debian.html 삭제",
+          "dist 폴더 내부의 index.html과 assets만 선택 업로드",
+          "dist 폴더 자체를 올리지 않도록 주의"
+        ]
+      },
+      {
+        "no": "5.3",
+        "title": "Nginx Vue Router 설정 (404 에러 방지)",
+        "summary": "Vue Router history 모드에서 새로고침 404를 막기 위해 default 설정의 try_files를 =404 대신 /index.html을 반환하도록 수정하고 Nginx를 재시작합니다.",
+        "points": [
+          "sudo nano /etc/nginx/sites-available/default로 설정 열기",
+          "try_files $uri $uri/ =404 를 /index.html 로 변경",
+          "없는 경로 요청 시 index.html을 반환해 Vue Router에 위임",
+          "sudo systemctl restart nginx 후 F5 새로고침으로 검증"
+        ]
+      },
+      {
+        "no": "6.1",
+        "title": "Spring Boot 프로젝트 빌드",
+        "summary": "로컬에서 Gradle(./gradlew clean build -x test)로 Spring Boot 3 프로젝트를 빌드하면 build/libs/에 내장 Tomcat을 포함한 실행 가능한 .jar가 생성됩니다.",
+        "points": [
+          "./gradlew clean build -x test (Windows는 gradlew)로 빌드",
+          "clean은 이전 결과물 삭제, build는 컴파일·패키징",
+          "-x test로 단위 테스트를 건너뛰어 빌드 시간 단축",
+          "plain이 붙지 않은 .jar가 실행 가능한 배포용 파일"
+        ]
+      },
+      {
+        "no": "6.2",
+        "title": "EC2에 Java 21(Zulu OpenJDK) 설치",
+        "summary": "Azul 공식 GPG 키와 APT 저장소를 등록하고 zulu21-jdk를 설치합니다. Spring Boot 3는 Java 17 이상이 필요하며 여기서는 Zulu OpenJDK 21을 사용합니다.",
+        "points": [
+          "gnupg, ca-certificates, curl 등 필수 패키지 설치",
+          "curl로 Azul GPG 키를 받아 gpg --dearmor로 등록",
+          "signed-by 옵션으로 Zulu APT 저장소를 zulu.list에 등록",
+          "sudo apt install -y zulu21-jdk 후 java -version으로 확인"
+        ]
+      },
+      {
+        "no": "6.3",
+        "title": ".jar 파일 업로드 및 실행",
+        "summary": "WinSCP로 .jar를 EC2의 /home/ubuntu에 업로드한 뒤 nohup java -jar ... & 로 터미널 종료 후에도 유지되는 백그라운드 무중단 실행을 시작합니다.",
+        "points": [
+          "WinSCP로 build/libs의 .jar를 /home/ubuntu에 업로드",
+          "nohup java -jar [파일명].jar & 로 백그라운드 실행",
+          "nohup은 터미널 종료에도 프로세스 유지, &는 백그라운드 실행",
+          "tail -f nohup.out으로 시작 로그 확인 (Ctrl+C로 종료)"
+        ]
+      },
+      {
+        "no": "6.4",
+        "title": "Nginx 리버스 프록시 설정 (80 → 8080)",
+        "summary": "Nginx default 설정에 proxy_pass와 proxy_set_header를 추가해 80번 포트 요청을 Spring Boot의 8080번으로 전달하여 포트 번호 없이 접속할 수 있게 합니다.",
+        "points": [
+          "proxy_pass http://localhost:8080으로 8080 포트로 전달",
+          "X-Real-IP, X-Forwarded-For로 실제 클라이언트 IP 전달",
+          "Host 헤더로 원본 호스트 정보 전달",
+          "sudo systemctl restart nginx 후 포트 없이 접속 확인"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ops-05",
+    "track": "ops",
+    "no": 5,
+    "title": "풀스택 통합 배포 (Spring·FastAPI·Vue·PostgreSQL)",
+    "summary": "하나의 EC2에 PostgreSQL·Spring Boot·Vue+Nginx를 직접 설치하는 네이티브 배포부터, Docker 이미지를 DockerHub에 올려 docker-compose로 배포하는 컨테이너 방식, 그리고 백엔드를 FastAPI로 교체한 컨테이너 배포까지 세 시나리오를 실습한다. 세 방식 모두 Nginx가 80번 포트에서 화면(/)과 API(/api/)를 분기하는 통합 라우팅 구조를 공유한다.",
+    "duration": "약 4.5시간",
+    "level": "실전",
+    "tags": [
+      "Spring Boot",
+      "FastAPI",
+      "Vue.js",
+      "PostgreSQL",
+      "Docker",
+      "Nginx"
+    ],
+    "sections": [
+      {
+        "no": "7.1",
+        "title": "전체 아키텍처",
+        "summary": "Docker 없이 한 대의 EC2에 DB·백엔드·프론트를 직접 설치하는 네이티브 배포의 트래픽 흐름을 설명한다.",
+        "points": [
+          "Nginx가 80번 포트에서 모든 요청을 받는 단일 진입점",
+          "/ 요청은 /var/www/html의 Vue.js 정적 파일로 서빙",
+          "/api/ 요청은 localhost:8080의 Spring Boot로 리버스 프록시",
+          "모든 구성 요소가 localhost(같은 서버)에서 동작"
+        ]
+      },
+      {
+        "no": "7.2",
+        "title": "로컬 빌드",
+        "summary": "배포 전 로컬에서 Spring Boot와 Vue.js를 각각 빌드하고 DB 주소를 localhost로 설정한다.",
+        "points": [
+          "application.yml의 datasource url을 jdbc:postgresql://localhost:5432/mydb로 지정",
+          "./gradlew clean build -x test 로 테스트 제외 빌드 → build/libs/*-SNAPSHOT.jar 생성",
+          "Vue는 npm run build 로 dist/ 정적 산출물 생성",
+          "프론트의 API 호출 경로가 /api/... 형태인지 사전 확인"
+        ]
+      },
+      {
+        "no": "7.3",
+        "title": "EC2 서버 환경 구축",
+        "summary": "EC2에 Nginx, PostgreSQL, Zulu Java 21을 한 번에 설치한다.",
+        "points": [
+          "apt update && upgrade 로 패키지 최신화",
+          "nginx, postgresql, postgresql-contrib 설치",
+          "Azul 저장소 키 등록 후 zulu21-jdk 설치",
+          "gpg --dearmor 와 signed-by 로 저장소 서명 검증"
+        ]
+      },
+      {
+        "no": "7.4",
+        "title": "PostgreSQL DB 및 사용자 생성",
+        "summary": "psql 콘솔에서 Spring Boot가 사용할 데이터베이스와 사용자를 생성한다.",
+        "points": [
+          "sudo -u postgres psql 로 관리자 콘솔 진입",
+          "CREATE DATABASE mydb 로 DB 생성",
+          "CREATE USER ... WITH ENCRYPTED PASSWORD 로 사용자 생성",
+          "GRANT ALL PRIVILEGES 로 권한 부여, 각 문장 끝 세미콜론 필수"
+        ]
+      },
+      {
+        "no": "7.5",
+        "title": "파일 업로드 및 서비스 실행",
+        "summary": "WinSCP로 빌드 산출물을 업로드하고 nohup으로 Spring Boot를 실행한다.",
+        "points": [
+          "chown -R ubuntu:ubuntu /var/www/html 로 업로드 권한 확보",
+          "Vue dist 파일은 /var/www/html, jar는 /home/ubuntu/spring_app에 업로드",
+          "nohup java -jar ...jar & 로 백그라운드 실행",
+          "tail -f nohup.out 으로 기동·DB 연결 로그 확인"
+        ]
+      },
+      {
+        "no": "7.6",
+        "title": "Nginx 통합 라우팅 설정",
+        "summary": "Nginx가 Vue 화면과 Spring Boot API를 한 설정 파일에서 분기하도록 구성한다.",
+        "points": [
+          "location / 에서 root /var/www/html + try_files 로 SPA 새로고침 404 방지",
+          "location /api/ 에서 proxy_pass http://localhost:8080 으로 백엔드 전달",
+          "X-Real-IP, X-Forwarded-For, Host 헤더 전달 설정",
+          "systemctl restart nginx 로 설정 적용"
+        ]
+      },
+      {
+        "no": "8.1",
+        "title": "Dockerfile 작성 및 DockerHub Push",
+        "summary": "Spring Boot와 Vue.js 각각의 Dockerfile을 작성하고 이미지를 DockerHub에 업로드한다.",
+        "points": [
+          "Spring Boot: azul/zulu-openjdk:21 베이스에 jar 복사 후 java -jar 실행",
+          "Vue: Node 18 빌드 단계 + Nginx Alpine 서빙 단계의 멀티 스테이지 빌드",
+          "최종 이미지에 Node 환경 미포함으로 용량 절감",
+          "docker build -t 후 docker push 로 DockerHub 업로드"
+        ]
+      },
+      {
+        "no": "8.2",
+        "title": "EC2 배포용 docker-compose.yml",
+        "summary": "DockerHub 이미지를 사용하는 db·backend·frontend 3-서비스 compose를 작성·배포한다.",
+        "points": [
+          "postgres:15 + pgdata 볼륨으로 데이터 영구 보존",
+          "backend는 SPRING_DATASOURCE_URL 환경변수로 db:5432 접속",
+          "frontend는 80:80 포트 매핑으로 외부 진입점 제공",
+          "컨테이너 간 통신은 서비스명(db, backend)을 호스트명처럼 사용"
+        ]
+      },
+      {
+        "no": "9.1",
+        "title": "FastAPI 배포 준비 및 Dockerfile",
+        "summary": "FastAPI 의존성을 requirements.txt로 추출하고 Python 3.12 슬림 Dockerfile을 작성한다.",
+        "points": [
+          "pip freeze > requirements.txt 로 의존성 고정",
+          "python:3.12-slim 베이스, requirements 먼저 복사로 레이어 캐시 최적화",
+          "pip install --no-cache-dir 로 이미지 용량 절감",
+          "uvicorn main:app --host 0.0.0.0 --port 8000 으로 구동"
+        ]
+      },
+      {
+        "no": "9.2",
+        "title": "Vue.js Dockerfile (FastAPI 연동)",
+        "summary": "로컬 dist를 복사하고 /api/를 FastAPI(8000)로 프록시하는 Nginx Dockerfile을 작성한다.",
+        "points": [
+          "nginx:alpine에 미리 빌드한 dist 폴더 COPY",
+          "proxy_pass 대상이 backend:8000 (Spring 8080과 다름)",
+          "try_files 로 SPA 라우팅 404 방지",
+          "npm run build 산출물(dist)이 사전 존재해야 함"
+        ]
+      },
+      {
+        "no": "9.3",
+        "title": "EC2 배포용 docker-compose.yml",
+        "summary": "FastAPI 백엔드 기반 풀스택을 EC2에서 실행하는 compose를 작성하고 8장과 비교한다.",
+        "points": [
+          "backend 이미지는 fastapi-backend:v1, 포트 8000",
+          "DB 접속은 단일 DATABASE_URL 환경변수(postgresql://...@db:5432/mydb)",
+          "db·frontend 구성은 8장과 동일, depends_on으로 기동 순서 보장",
+          "docker compose up -d / ps 로 실행 및 상태 확인"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ops-06",
+    "track": "ops",
+    "no": 6,
+    "title": "도커 기반 MSA 통합 배포",
+    "summary": "FastAPI+Vue+PostgreSQL 풀스택을 EC2 네이티브로 배포하는 기초부터 모노레포 Docker Compose·DockerHub 파이프라인까지 다룹니다. 마지막으로 Spring Boot(비즈니스)와 FastAPI(AI 추론)를 분리한 4중 컨테이너 MSA를 Nginx 경로 라우팅과 함께 네이티브/Docker 두 방식으로 완성합니다.",
+    "duration": "약 4시간",
+    "level": "실전",
+    "tags": [
+      "MSA",
+      "Docker",
+      "docker-compose",
+      "DockerHub",
+      "Nginx",
+      "FastAPI"
+    ],
+    "sections": [
+      {
+        "no": "10.1",
+        "title": "로컬 준비",
+        "summary": "배포 전 로컬에서 FastAPI와 Vue.js를 준비합니다.",
+        "points": [
+          "pip freeze로 requirements.txt를 추출해 서버에서 환경 재현",
+          "DB 접속 주소를 코드에 박지 않고 os.getenv로 환경 변수에서 읽기",
+          "npm run build로 Vue.js를 dist 정적 파일로 빌드"
+        ]
+      },
+      {
+        "no": "10.2",
+        "title": "EC2 환경 구축",
+        "summary": "EC2에 Nginx, PostgreSQL, Python 가상 환경을 설치하고 DB를 생성합니다.",
+        "points": [
+          "apt로 nginx, postgresql, python3-pip/venv 설치",
+          "sudo -u postgres psql로 콘솔 접속",
+          "CREATE DATABASE/USER, GRANT로 전용 DB와 계정 생성"
+        ]
+      },
+      {
+        "no": "10.3",
+        "title": "파일 업로드 및 FastAPI 실행",
+        "summary": "WinSCP로 파일을 올리고 가상 환경에서 FastAPI를 무중단 실행합니다.",
+        "points": [
+          "chown으로 웹 루트 소유권 변경, FastAPI 전용 폴더 생성",
+          "Vue dist는 /var/www/html, FastAPI 소스는 fastapi_app으로 업로드(venv 제외)",
+          "venv 활성화 후 nohup uvicorn --host 127.0.0.1 --port 8000으로 백그라운드 실행"
+        ]
+      },
+      {
+        "no": "10.4",
+        "title": "Nginx 통합 라우팅 설정",
+        "summary": "Nginx가 80포트 요청을 화면(/)과 API(/api/)로 분기합니다.",
+        "points": [
+          "location /은 try_files로 SPA 새로고침 404 방지",
+          "location /api/는 127.0.0.1:8000 FastAPI로 proxy_pass",
+          "X-Real-IP, X-Forwarded-For, Host 헤더 전달 후 nginx 재시작"
+        ]
+      },
+      {
+        "no": "11.1",
+        "title": "프로젝트 구조",
+        "summary": "FastAPI/Vue를 하나의 모노레포로 구성합니다.",
+        "points": [
+          "backend(FastAPI)와 frontend(Vue) 폴더 분리",
+          "각 폴더에 Dockerfile 배치",
+          "최상위 docker-compose.yml이 전체 서비스를 오케스트레이션"
+        ]
+      },
+      {
+        "no": "11.2",
+        "title": "백엔드 예시 코드",
+        "summary": "PostgreSQL과 연동하는 FastAPI 상태 점검 엔드포인트를 작성합니다.",
+        "points": [
+          "requirements.txt: fastapi, uvicorn, sqlalchemy, psycopg2-binary",
+          "DATABASE_URL을 환경 변수로 받아 create_engine 생성",
+          "/api/status에서 SELECT 1로 DB 연결 정상 여부 확인"
+        ]
+      },
+      {
+        "no": "11.3",
+        "title": "프론트엔드 예시 코드",
+        "summary": "백엔드를 상대 경로로 호출하는 Vue 컴포넌트를 작성합니다.",
+        "points": [
+          "fetch('/api/status')처럼 백엔드 주소 대신 상대 경로 사용",
+          "Nginx가 /api/ 경로를 백엔드 컨테이너로 전달",
+          "백엔드 주소 변경 시 프론트 코드 수정 불필요로 유지보수 용이"
+        ]
+      },
+      {
+        "no": "11.4",
+        "title": "로컬 테스트 및 DockerHub 배포",
+        "summary": "docker compose로 전체를 테스트하고 이미지를 DockerHub에 Push합니다.",
+        "points": [
+          "db/backend/frontend 3서비스와 pgdata 볼륨 정의",
+          "컨테이너 간 통신은 서비스명(db)을 호스트로 사용",
+          "docker build/push로 백엔드·프론트엔드 이미지를 DockerHub 업로드"
+        ]
+      },
+      {
+        "no": "12.1",
+        "title": "전체 MSA 아키텍처",
+        "summary": "Spring Boot와 FastAPI 이중 백엔드의 트래픽 흐름을 설명합니다.",
+        "points": [
+          "/ → Vue 화면, /api/ → Spring Boot(8080), /ai/ → FastAPI(8000)",
+          "Spring Boot가 일반 비즈니스, FastAPI가 AI 추론 담당",
+          "두 백엔드 모두 PostgreSQL(5432)과 통신"
+        ]
+      },
+      {
+        "no": "12.2",
+        "title": "네이티브 배포 (Docker 미사용)",
+        "summary": "EC2에 모든 서비스를 직접 설치·실행하고 Nginx로 분기합니다.",
+        "points": [
+          "Spring Boot(gradlew), FastAPI(pip freeze), Vue(npm build) 로컬 준비",
+          "Azul Zulu 저장소로 Java 21 설치, PostgreSQL DB 생성",
+          "nohup java -jar(8080) + nohup uvicorn(8000) 실행 후 /api/·/ai/ Nginx 라우팅"
+        ]
+      },
+      {
+        "no": "12.3",
+        "title": "Docker 기반 MSA 배포 (DockerHub 활용)",
+        "summary": "4개 컨테이너로 구성된 MSA를 DockerHub와 Compose로 배포합니다.",
+        "points": [
+          "Spring Boot/FastAPI/Vue 각각 Dockerfile 작성 후 build·push",
+          "Vue Dockerfile에 /api/→spring-backend, /ai/→fastapi-backend 이중 프록시",
+          "docker compose up -d로 db·spring·fastapi·frontend 4컨테이너 동시 기동"
+        ]
+      }
+    ]
   }
 ];
 
 export const TRACKS = {
   react: { id:"react", label:"React 프론트엔드", en:"Frontend", color:"#1A45D8", desc:"JSX부터 상태관리·인증·배포까지, 실무형 React 19 풀코스" },
   ai: { id:"ai", label:"AI 웹 서비스", en:"AI Web Service", color:"#F15A0C", desc:"FastAPI와 Hugging Face로 생성형 AI를 웹 서비스로 구현" }
+,
+  ops: { id:"ops", label:"실전 배포·협업", en:"Deploy & Collab", color:"#0E9F6E", desc:"Git·GitHub 협업부터 FastAPI·Spring·Vue를 AWS·Docker로 배포하기까지" }
 };
 
 export const getChapter = (id) => CHAPTERS.find(c => c.id === id);

@@ -9,6 +9,7 @@ const FILTERS = [
   { id: 'all', label: '전체' },
   { id: 'react', label: 'React 프론트엔드' },
   { id: 'ai', label: 'AI 웹 서비스' },
+  { id: 'ops', label: '실전 배포·협업' },
 ]
 
 export default function Curriculum() {
@@ -43,7 +44,7 @@ export default function Curriculum() {
       </section>
 
       <section style={{ maxWidth: 1480, margin: '0 auto', padding: '0 clamp(20px,5vw,56px) clamp(64px,10vw,120px)' }}>
-        {(f === 'all' ? ['react', 'ai'] : [f]).map((tid) => {
+        {(f === 'all' ? ['react', 'ai', 'ops'] : [f]).map((tid) => {
           const chs = (f === 'all' ? byTrack(tid) : list)
           const tr = TRACKS[tid]
           return (

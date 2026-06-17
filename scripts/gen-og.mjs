@@ -54,7 +54,7 @@ const svg = `
   <!-- badge -->
   <g transform="translate(92,584)">
     <rect x="0" y="0" width="250" height="40" rx="20" fill="#ffffff" opacity="0.12"/>
-    <text x="125" y="26" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="20" font-weight="700" fill="#ffffff">16개 챕터 · 64개 강의</text>
+    <text x="125" y="26" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="20" font-weight="700" fill="#ffffff">22개 챕터 · 117개 강의</text>
   </g>
 
   <text x="${W - 60}" y="${H - 44}" text-anchor="end" font-family="Pretendard, sans-serif" font-size="22" font-weight="600" fill="#6B7390">bootcamp.dreamitbiz.com</text>
