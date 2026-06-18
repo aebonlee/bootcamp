@@ -179,4 +179,5 @@ export const PROJECTS = [
 ]
 
 export const byLevel = (lv) => PROJECTS.filter((p) => p.level === lv)
+export const getProject = (id) => PROJECTS.find((p) => p.id === id)
 export const TOTAL_PROJECTS = PROJECTS.length

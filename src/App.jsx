@@ -8,6 +8,7 @@ import Track from './pages/Track'
 import Lesson from './pages/Lesson'
 import Resources from './pages/Resources'
 import Projects from './pages/Projects'
+import ProjectDetail from './pages/ProjectDetail'
 import Quiz from './pages/Quiz'
 import Login from './pages/Login'
 import MyPage from './pages/MyPage'
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/lesson/:id" element={<Lesson />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/project/:id" element={<ProjectDetail />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />

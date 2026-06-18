@@ -108,6 +108,10 @@ export default function Projects() {
                           )
                         })}
                       </div>
+
+                      <Link to={`/project/${p.id}`} className="cta-pill" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 16, padding: '12px', borderRadius: 12, background: tm.grad, color: '#fff', fontSize: 14, fontWeight: 700 }}>
+                        구현 예제 · 동작 보기 <span>→</span>
+                      </Link>
                     </Reveal>
                   )
                 })}
