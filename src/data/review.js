@@ -1,4 +1,4 @@
-// 자동 생성: 챕터 본문에서 추출한 핵심 용어 + 퀴즈
+// 자동 생성: 챕터 본문에서 추출한 핵심 용어 + 퀴즈 (react·ai·ops 22개 챕터)
 export const QUIZZES = {
   "react-01": [
     {
@@ -911,6 +911,348 @@ export const QUIZZES = {
       "answer": 2,
       "explain": "무료 플랜은 공개 저장소만 가능하며 48시간 미사용 시 슬립되고, 커스텀 도메인·비공개·지속 실행은 상위 플랜이 필요하다."
     }
+  ],
+  "ops-01": [
+    {
+      "q": "Git과 GitHub의 관계를 가장 정확하게 설명한 것은?",
+      "options": [
+        "Git은 클라우드 서비스이고 GitHub는 로컬 도구다",
+        "Git은 로컬에서 동작하는 버전 관리 도구이고, GitHub는 Git 저장소를 호스팅하는 플랫폼이다",
+        "둘은 같은 회사가 만든 동일한 프로그램의 다른 이름이다",
+        "GitHub가 있어야만 Git을 사용할 수 있다"
+      ],
+      "answer": 1,
+      "explain": "Git은 내 컴퓨터(로컬)에서 동작하는 도구이고 GitHub는 그 저장소를 클라우드에 호스팅하는 플랫폼으로, Git이 먼저이고 GitHub는 선택이다."
+    },
+    {
+      "q": "`git add .`를 실행하면 변경 사항은 어디로 이동하는가?",
+      "options": [
+        "작업 디렉터리에서 스테이징 영역으로",
+        "스테이징 영역에서 저장소로",
+        "저장소에서 원격으로",
+        "원격에서 로컬로"
+      ],
+      "answer": 0,
+      "explain": "git add는 작업 디렉터리의 변경을 스테이징 영역으로 올리는 명령이며, 스테이징된 내용을 저장소에 기록하는 것은 git commit이다."
+    },
+    {
+      "q": "병합 충돌이 발생했을 때 올바른 대응은?",
+      "options": [
+        "충돌은 심각한 에러이므로 저장소를 새로 만든다",
+        "충돌 표시 줄(<<<<<<<, =======, >>>>>>>)을 남겨 둔 채 커밋한다",
+        "원하는 코드를 정리하고 충돌 표시 줄을 모두 삭제한 뒤 다시 스테이징하고 커밋한다",
+        "Git이 자동으로 한쪽을 골라 주므로 그냥 기다린다"
+      ],
+      "answer": 2,
+      "explain": "충돌은 정상적인 협업 과정이며, 원하는 코드를 남기고 충돌 표시 줄을 반드시 모두 삭제한 뒤 다시 add·commit 해야 한다."
+    },
+    {
+      "q": "이미 push해 공유 중인 커밋을 안전하게 되돌리려 할 때 권장되는 명령은?",
+      "options": [
+        "git reset",
+        "git revert",
+        "git stash",
+        "git rebase"
+      ],
+      "answer": 1,
+      "explain": "git revert는 변경을 취소하는 새 커밋을 만들어 이력을 지우지 않으므로 공유 브랜치에서도 안전하다."
+    },
+    {
+      "q": "오픈소스 라이선스 중 \"이 코드를 쓴 결과물도 같은 라이선스로 공개\"하도록 강제하는 카피레프트 라이선스는?",
+      "options": [
+        "MIT",
+        "Apache 2.0",
+        "GPL",
+        "BSD"
+      ],
+      "answer": 2,
+      "explain": "GPL은 파생 결과물도 같은 조건으로 공개하도록 강제하는 카피레프트 라이선스이며, MIT·Apache는 그런 의무가 없다."
+    }
+  ],
+  "ops-02": [
+    {
+      "q": "이 프로젝트에서 FastAPI와 Uvicorn의 역할 구분으로 옳은 것은?",
+      "options": [
+        "FastAPI는 ASGI 서버이고 Uvicorn은 웹 프레임워크다",
+        "FastAPI는 웹 프레임워크이고 Uvicorn은 그것을 실행하는 ASGI 서버다",
+        "둘 다 UI를 만드는 라이브러리다",
+        "FastAPI는 모델 로딩, Uvicorn은 양자화를 담당한다"
+      ],
+      "answer": 1,
+      "explain": "FastAPI는 고성능 Python 웹 프레임워크이고, Uvicorn은 FastAPI를 실행하는 ASGI 서버다."
+    },
+    {
+      "q": "BitsAndBytesConfig에서 4-bit 양자화를 켜는 핵심 옵션은 무엇인가?",
+      "options": [
+        "device_map=\"auto\"",
+        "bnb_4bit_compute_dtype=torch.bfloat16",
+        "load_in_4bit=True",
+        "do_sample=True"
+      ],
+      "answer": 2,
+      "explain": "load_in_4bit=True가 모델 가중치를 4-bit로 로드해 메모리를 대폭 절감하는 핵심 옵션이다."
+    },
+    {
+      "q": "`gr.mount_gradio_app(app, demo, path=\"/\")` 코드의 역할은?",
+      "options": [
+        "Gradio UI를 FastAPI의 루트 경로(/)에 마운트하여 한 포트에서 함께 구동한다",
+        "모델을 GPU에 자동 분배한다",
+        "허깅페이스에 파일을 업로드한다",
+        "토큰을 텍스트로 디코딩한다"
+      ],
+      "answer": 0,
+      "explain": "gr.mount_gradio_app은 Gradio UI를 FastAPI의 루트 경로(/)에 마운트해 하나의 포트에서 API와 챗봇 화면이 동시에 구동되게 한다."
+    },
+    {
+      "q": "추론 함수에서 `temperature=0.7` 설정이 의미하는 것은?",
+      "options": [
+        "최대 생성 토큰 수를 0.7배로 줄인다",
+        "GPU 온도를 제한한다",
+        "답변의 다양성을 제어한다(0에 가까울수록 결정적, 1에 가까울수록 창의적)",
+        "응답을 0.7초 안에 끝낸다"
+      ],
+      "answer": 2,
+      "explain": "temperature는 답변의 다양성을 제어하는 값으로, 0에 가까울수록 결정적이고 1에 가까울수록 창의적인 응답이 나온다."
+    },
+    {
+      "q": "허깅페이스 스페이스에 이 앱을 배포할 때 옳은 설정은?",
+      "options": [
+        "Space SDK로 Gradio를 선택하고 5000 포트를 사용한다",
+        "Space SDK로 Docker를 선택하고 7860 포트를 사용한다",
+        "Space SDK로 Static을 선택하고 8000 포트를 사용한다",
+        "Space SDK로 Docker를 선택하고 80 포트를 사용한다"
+      ],
+      "answer": 1,
+      "explain": "FastAPI+Gradio 배포에서는 Space SDK로 Docker를 선택하며, 허깅페이스는 기본적으로 7860 포트를 외부에 노출하므로 uvicorn을 --port 7860으로 실행한다."
+    }
+  ],
+  "ops-03": [
+    {
+      "q": "기본 EC2 대신 탄력적 IP(Elastic IP)를 할당하는 주된 이유는?",
+      "options": [
+        "기본 EC2는 재시작할 때마다 공인 IP가 바뀌어 안정적 운영이 어렵기 때문",
+        "탄력적 IP가 일반 IP보다 전송 속도가 빠르기 때문",
+        "탄력적 IP가 있어야 Docker를 설치할 수 있기 때문",
+        "보안 그룹 설정이 자동으로 적용되기 때문"
+      ],
+      "answer": 0,
+      "explain": "기본 EC2는 재시작 시마다 공인 IP가 바뀌므로 고정 IP인 탄력적 IP를 할당해 안정적으로 운영합니다."
+    },
+    {
+      "q": "SSH 접속 전에 `chmod 400 my-app-key.pem` 명령을 실행하는 이유는?",
+      "options": [
+        "키 파일을 압축하여 전송 속도를 높이기 위해",
+        "소유자만 읽을 수 있도록 권한을 제한해야 SSH가 접속을 허용하기 때문",
+        "키 파일을 PuTTY 형식으로 변환하기 위해",
+        "모든 사용자에게 실행 권한을 부여하기 위해"
+      ],
+      "answer": 1,
+      "explain": "chmod 400은 소유자에게만 읽기 권한을 부여하며, 이 설정이 없으면 SSH가 보안상 접속을 거부합니다."
+    },
+    {
+      "q": "EC2의 Docker 설치 과정에서 `sudo usermod -aG docker $USER`를 실행하는 목적은?",
+      "options": [
+        "Docker를 자동 시작 서비스로 등록하기 위해",
+        "ubuntu 계정을 docker 그룹에 추가해 sudo 없이 docker 명령을 쓰기 위해",
+        "Docker 공식 GPG 키를 등록하기 위해",
+        "containerd를 별도로 설치하기 위해"
+      ],
+      "answer": 1,
+      "explain": "이 명령은 현재 계정을 docker 그룹에 추가해 sudo 없이 docker를 쓰게 하며, 적용하려면 재접속이 필요합니다."
+    },
+    {
+      "q": "docker-compose.yml에서 db 서비스의 `volumes`로 명명 볼륨 pgdata를 마운트하는 이유는?",
+      "options": [
+        "컨테이너를 재시작·삭제해도 데이터가 유지되도록 하기 위해",
+        "DB 컨테이너의 메모리 사용량을 줄이기 위해",
+        "외부에 80번 포트를 노출하기 위해",
+        "backend보다 먼저 기동되도록 순서를 지정하기 위해"
+      ],
+      "answer": 0,
+      "explain": "명명 볼륨 pgdata를 DB 데이터 경로에 마운트하면 컨테이너를 재시작하거나 삭제해도 데이터가 영속됩니다."
+    },
+    {
+      "q": "`docker compose up -d` 명령에서 `-d` 옵션의 의미는?",
+      "options": [
+        "정의된 모든 이미지를 삭제(delete)한다",
+        "디버그(debug) 로그를 출력한다",
+        "백그라운드(detached mode)로 컨테이너를 실행한다",
+        "DockerHub에서 다운로드만 수행한다"
+      ],
+      "answer": 2,
+      "explain": "-d는 detached mode로, 모든 컨테이너를 백그라운드에서 실행하며 로컬에 없는 이미지는 DockerHub에서 자동으로 내려받습니다."
+    }
+  ],
+  "ops-04": [
+    {
+      "q": "Nginx 설치 후 `sudo chown -R ubuntu:ubuntu /var/www/html`을 실행하는 이유는?",
+      "options": [
+        "Nginx를 자동으로 재시작하기 위해",
+        "WinSCP로 파일 업로드 시 권한 오류가 발생하지 않도록 ubuntu 계정에 소유권을 주기 위해",
+        "기본 환영 페이지를 삭제하기 위해",
+        "80번 포트를 외부에 개방하기 위해"
+      ],
+      "answer": 1,
+      "explain": "이 명령은 /var/www/html의 소유권을 ubuntu로 바꿔, WinSCP 업로드 시 발생하는 권한 오류를 방지합니다."
+    },
+    {
+      "q": "Vue.js SPA 배포 시 Nginx 설정을 `try_files $uri $uri/ /index.html`로 바꾸는 이유는?",
+      "options": [
+        "정적 자산을 압축해 전송 속도를 높이기 위해",
+        "존재하지 않는 경로에서 404 대신 index.html을 반환해 새로고침 404를 막기 위해",
+        "8080 포트로 요청을 전달하기 위해",
+        "dist 폴더를 자동으로 생성하기 위해"
+      ],
+      "answer": 1,
+      "explain": "파일이 없을 때 index.html을 반환하면 경로 처리를 Vue Router에 위임해 새로고침 시 404 에러를 방지합니다."
+    },
+    {
+      "q": "Spring Boot Gradle 빌드 `./gradlew clean build -x test`에서 `-x test` 옵션의 역할은?",
+      "options": [
+        "단위 테스트 실행을 건너뛰어 빌드 시간을 줄인다",
+        "이전 빌드 결과물을 삭제한다",
+        "plain jar만 생성한다",
+        "테스트만 단독으로 실행한다"
+      ],
+      "answer": 0,
+      "explain": "-x test는 단위 테스트 실행을 제외(skip)하여 빌드 시간을 단축합니다."
+    },
+    {
+      "q": "`build/libs/` 폴더에서 EC2에 업로드해 실행하는 배포용 jar 파일은?",
+      "options": [
+        "-plain이 붙은 jar (라이브러리용)",
+        "plain이 붙지 않은 jar (내장 Tomcat 포함, 실행 가능)",
+        "두 파일을 모두 함께 실행해야 함",
+        "확장자가 .war인 파일"
+      ],
+      "answer": 1,
+      "explain": "plain이 붙지 않은 jar가 내장 Tomcat을 포함한 실행 가능한 배포용 파일이고, -plain jar는 라이브러리용으로 실행할 수 없습니다."
+    },
+    {
+      "q": "Spring Boot 배포에서 Nginx `proxy_pass http://localhost:8080` 리버스 프록시를 설정하는 목적은?",
+      "options": [
+        "정적 HTML 파일을 직접 서빙하기 위해",
+        "80번 포트 요청을 내부 8080(Spring Boot)으로 전달해 포트 번호 없이 접속하게 하기 위해",
+        "Java 21을 자동으로 설치하기 위해",
+        "nohup으로 jar를 백그라운드 실행하기 위해"
+      ],
+      "answer": 1,
+      "explain": "proxy_pass는 80번으로 들어온 요청을 내부 8080번(Spring Boot)으로 전달해 사용자가 포트 번호 없이 표준 주소로 접속하게 합니다."
+    }
+  ],
+  "ops-05": [
+    {
+      "q": "7장 네이티브 배포에서 Nginx가 /api/ 경로 요청을 전달하는 대상은?",
+      "options": [
+        "localhost:8080의 Spring Boot",
+        "localhost:5432의 PostgreSQL",
+        "/var/www/html 정적 파일",
+        "DockerHub 레지스트리"
+      ],
+      "answer": 0,
+      "explain": "Nginx는 /api/ 요청을 proxy_pass로 같은 서버의 Spring Boot(8080)에 전달한다."
+    },
+    {
+      "q": "Nginx 설정의 try_files $uri $uri/ /index.html의 목적은?",
+      "options": [
+        "API 요청을 백엔드로 프록시",
+        "Vue Router 경로에서 새로고침 시 404 방지",
+        "PostgreSQL 자동 백업",
+        "도커 이미지 캐시 최적화"
+      ],
+      "answer": 1,
+      "explain": "요청 경로의 파일이 없으면 index.html로 폴백시켜 SPA 새로고침 404를 막는다."
+    },
+    {
+      "q": "8장 Vue.js Dockerfile이 멀티 스테이지 빌드를 쓰는 주된 이점은?",
+      "options": [
+        "DB 접속 속도 향상",
+        "API 포트를 자동 변경",
+        "최종 이미지에 Node.js를 빼 크기를 줄임",
+        "DockerHub 로그인 생략"
+      ],
+      "answer": 2,
+      "explain": "빌드 결과물만 경량 Nginx 이미지에 복사하므로 Node.js가 빠져 이미지 크기가 작아진다."
+    },
+    {
+      "q": "docker-compose 환경에서 backend 컨테이너가 PostgreSQL에 접속할 때 호스트명으로 무엇을 쓰는가?",
+      "options": [
+        "localhost",
+        "127.0.0.1",
+        "서비스명 db",
+        "탄력적 IP"
+      ],
+      "answer": 2,
+      "explain": "Compose 내부 네트워크에서는 서비스 이름(db)을 호스트명처럼 사용하므로 7장의 localhost가 db로 바뀐다."
+    },
+    {
+      "q": "8장 Spring Boot와 9장 FastAPI 배포의 차이로 옳은 것은?",
+      "options": [
+        "Spring은 8000, FastAPI는 8080 포트를 쓴다",
+        "Spring은 jar 빌드 후 패키징, FastAPI는 소스 코드 그대로 패키징한다",
+        "FastAPI만 Nginx 통합 라우팅을 쓴다",
+        "Spring만 docker-compose를 사용한다"
+      ],
+      "answer": 1,
+      "explain": "Java는 jar로 빌드해 패키징하지만 Python FastAPI는 컴파일 없이 소스와 requirements.txt를 그대로 이미지에 담는다."
+    }
+  ],
+  "ops-06": [
+    {
+      "q": "12장 MSA에서 Nginx가 /ai/ 경로 요청을 전달하는 대상은?",
+      "options": [
+        "Spring Boot(8080)",
+        "FastAPI(8000)",
+        "PostgreSQL(5432)",
+        "Vue.js 정적 파일"
+      ],
+      "answer": 1,
+      "explain": "/ai/는 AI 추론을 담당하는 FastAPI(8000)로, /api/는 Spring Boot(8080)로 분기된다."
+    },
+    {
+      "q": "FastAPI 코드에서 os.getenv(\"DATABASE_URL\", ...)를 쓰는 이유로 가장 적절한 것은?",
+      "options": [
+        "DB 비밀번호를 자동 암호화하려고",
+        "환경마다 코드 수정 없이 접속 정보만 주입해 바꾸려고",
+        "SELECT 1 쿼리를 생략하려고",
+        "Nginx 설정을 자동 생성하려고"
+      ],
+      "answer": 1,
+      "explain": "접속 주소를 환경 변수로 읽으면 로컬·서버·도커 환경마다 코드를 고치지 않고 값만 주입해 바꿀 수 있다."
+    },
+    {
+      "q": "11장 Vue.js가 백엔드를 호출할 때 /api/status 상대 경로를 쓰는 효과는?",
+      "options": [
+        "백엔드 주소가 바뀌어도 프론트 코드를 안 고쳐도 됨",
+        "DB 연결이 빨라짐",
+        "도커 이미지가 작아짐",
+        "PostgreSQL 권한이 자동 부여됨"
+      ],
+      "answer": 0,
+      "explain": "Nginx가 /api/ 경로를 백엔드로 라우팅하므로 백엔드 주소를 바꿔도 프론트 코드를 수정할 필요가 없다."
+    },
+    {
+      "q": "12.3 Docker MSA에서 Vue.js Dockerfile의 Nginx 설정이 /api/ proxy_pass 대상으로 쓰는 값은?",
+      "options": [
+        "http://127.0.0.1:8080",
+        "http://localhost:8000",
+        "http://spring-backend:8080",
+        "http://db:5432"
+      ],
+      "answer": 2,
+      "explain": "컨테이너 간 통신이므로 IP 대신 서비스명 spring-backend(8080)을 proxy_pass 대상으로 사용한다."
+    },
+    {
+      "q": "FastAPI의 /api/status 엔드포인트가 DB 연결 정상 여부를 판단하는 방법은?",
+      "options": [
+        "docker compose ps 결과 확인",
+        "engine.connect() 후 SELECT 1 쿼리 성공 여부",
+        "Nginx 로그 분석",
+        "pip freeze 출력 비교"
+      ],
+      "answer": 1,
+      "explain": "DB 커넥션을 열고 가장 가벼운 SELECT 1 쿼리가 성공하면 연결이 정상이라고 판단한다."
+    }
   ]
 };
 
@@ -1682,6 +2024,294 @@ export const GLOSSARY = [
     "def": "여러 컨테이너를 하나의 YAML 파일로 정의해 함께 실행하는 도구다. FastAPI 앱 + Nginx 리버스 프록시 + Prometheus + Grafana를 한 번에 구성·기동할 수 있다.",
     "chapter": "ai-08",
     "track": "ai"
+  },
+  {
+    "term": "버전 관리(Version Control)",
+    "def": "파일의 변경 이력을 시간순으로 기록하고 추적하는 시스템. 이력 추적, 협업, 안전망이라는 세 가지 핵심 가치를 제공한다.",
+    "chapter": "ops-01",
+    "track": "ops"
+  },
+  {
+    "term": "스냅샷(snapshot)",
+    "def": "Git이 변경을 저장할 때 바뀐 줄만이 아니라 그 시점의 프로젝트 전체 상태를 사진처럼 찍어 기록하는 방식. 누가·언제·무엇을·왜 바꿨는지가 함께 남아 특정 시점으로 정확히 되돌아갈 수 있다.",
+    "chapter": "ops-01",
+    "track": "ops"
+  },
+  {
+    "term": "스테이징 영역(Staging Area)",
+    "def": "다음 커밋에 포함할 변경을 모아 두는 중간 대기실. 이 단계 덕분에 변경 중 일부만 골라서 커밋할 수 있다.",
+    "chapter": "ops-01",
+    "track": "ops"
+  },
+  {
+    "term": "브랜치(Branch)",
+    "def": "메인 코드를 건드리지 않고 새로운 작업을 위한 평행 세계를 만드는 기능. 작업을 독립 공간에 격리했다가 끝나면 병합(merge)으로 합친다.",
+    "chapter": "ops-01",
+    "track": "ops"
+  },
+  {
+    "term": "병합 충돌(merge conflict)",
+    "def": "두 브랜치가 같은 파일의 같은 부분을 다르게 고쳐 Git이 스스로 판단할 수 없을 때 발생한다. 에러가 아니라 사람이 결정해 달라는 정상적인 협업 과정이다.",
+    "chapter": "ops-01",
+    "track": "ops"
+  },
+  {
+    "term": "원격 저장소(remote)와 origin",
+    "def": "인터넷의 GitHub 등에 있는 저장소가 원격이며, 로컬과 연결한 기본 별칭을 관례적으로 origin이라 부른다. 코드를 올릴 땐 push, 받을 땐 pull을 사용한다.",
+    "chapter": "ops-01",
+    "track": "ops"
+  },
+  {
+    "term": "Pull Request(PR)",
+    "def": "\"내 변경을 합쳐 주세요\"라고 보내는 제안이자 코드 리뷰 요청. Fork→Branch→Push→PR→Review&Merge로 이어지는 표준 협업 흐름의 핵심 단계다.",
+    "chapter": "ops-01",
+    "track": "ops"
+  },
+  {
+    "term": "git revert",
+    "def": "특정 커밋의 변경을 취소하는 새 커밋을 만들어 안전하게 되돌리는 명령. 이력을 지우지 않으므로 이미 공개(push)한 공유 브랜치에서도 안전하다.",
+    "chapter": "ops-01",
+    "track": "ops"
+  },
+  {
+    "term": "FastAPI",
+    "def": "고성능 Python 웹 프레임워크로, 이 챗봇에서 백엔드 API 서버 역할을 한다.",
+    "chapter": "ops-02",
+    "track": "ops"
+  },
+  {
+    "term": "Uvicorn",
+    "def": "FastAPI 애플리케이션을 실행하는 ASGI 서버. `uvicorn main:app` 형태로 main 모듈의 app 객체를 구동한다.",
+    "chapter": "ops-02",
+    "track": "ops"
+  },
+  {
+    "term": "Gradio",
+    "def": "머신러닝 모델의 웹 UI를 빠르게 만들 수 있는 라이브러리. `gr.ChatInterface`로 채팅형 화면을 자동 생성한다.",
+    "chapter": "ops-02",
+    "track": "ops"
+  },
+  {
+    "term": "transformers",
+    "def": "Hugging Face의 사전 학습된 AI 모델을 불러오고 사용하는 핵심 라이브러리. AutoTokenizer와 AutoModelForCausalLM 등을 제공한다.",
+    "chapter": "ops-02",
+    "track": "ops"
+  },
+  {
+    "term": "4-bit 양자화 / bitsandbytes",
+    "def": "모델 가중치를 4-bit로 로드해 메모리 사용량을 크게 줄이는 경량화 기술로, bitsandbytes 라이브러리와 BitsAndBytesConfig로 설정한다. load_in_4bit=True가 핵심 옵션이다.",
+    "chapter": "ops-02",
+    "track": "ops"
+  },
+  {
+    "term": "NF4(Normal Float 4)",
+    "def": "BitsAndBytesConfig의 bnb_4bit_quant_type=\"nf4\"로 지정하는 4-bit 양자화 방식으로, 4-bit 중 성능이 가장 우수하다.",
+    "chapter": "ops-02",
+    "track": "ops"
+  },
+  {
+    "term": "gr.mount_gradio_app",
+    "def": "Gradio UI를 FastAPI 애플리케이션의 특정 경로(여기서는 루트 \"/\")에 마운트하여 하나의 포트에서 API와 챗봇 화면을 동시에 구동하게 하는 함수다.",
+    "chapter": "ops-02",
+    "track": "ops"
+  },
+  {
+    "term": "허깅페이스 스페이스(Hugging Face Spaces)",
+    "def": "무료로 AI 애플리케이션을 배포·공유할 수 있는 플랫폼. Docker SDK로 배포하며 기본적으로 7860 포트를 외부에 노출한다.",
+    "chapter": "ops-02",
+    "track": "ops"
+  },
+  {
+    "term": "EC2",
+    "def": "AWS에서 제공하는 가상 서버 인스턴스로, 이 장에서는 Ubuntu 기반 인스턴스를 생성하여 웹 서비스를 배포하는 기반으로 사용합니다.",
+    "chapter": "ops-03",
+    "track": "ops"
+  },
+  {
+    "term": "탄력적 IP(Elastic IP)",
+    "def": "EC2에 부여하는 고정 공인 IP 주소입니다. 기본 EC2는 재시작 시마다 공인 IP가 바뀌므로 안정적인 웹 서비스 운영을 위해 탄력적 IP를 할당합니다.",
+    "chapter": "ops-03",
+    "track": "ops"
+  },
+  {
+    "term": "키 페어(.pem)",
+    "def": "EC2 SSH 접속에 필요한 RSA 개인 키 파일입니다. 분실 시 재발급이 불가능하므로 안전한 곳에 보관해야 하며, 접속 전 chmod 400으로 권한을 제한해야 합니다.",
+    "chapter": "ops-03",
+    "track": "ops"
+  },
+  {
+    "term": "보안 그룹",
+    "def": "EC2 인스턴스의 방화벽 역할을 하는 설정으로, 원격 접속과 웹 서비스 노출을 위해 SSH(22), HTTP(80), HTTPS(443) 포트를 열어야 합니다.",
+    "chapter": "ops-03",
+    "track": "ops"
+  },
+  {
+    "term": "Docker",
+    "def": "컨테이너 기반 가상화 도구로, Java·Python·Nginx 등을 서버에 직접 설치하지 않고도 컨테이너로 모든 실행 환경을 구성할 수 있게 해줍니다.",
+    "chapter": "ops-03",
+    "track": "ops"
+  },
+  {
+    "term": "docker-compose.yml",
+    "def": "여러 컨테이너(서비스)를 한 파일에 정의하여 한 번에 실행하는 Docker Compose 설정 파일로, db·backend·frontend 같은 서비스를 services 아래에 선언합니다.",
+    "chapter": "ops-03",
+    "track": "ops"
+  },
+  {
+    "term": "DockerHub",
+    "def": "Docker 이미지를 저장·공유하는 온라인 레지스트리로, docker compose up 실행 시 로컬에 없는 이미지를 자동으로 내려받는 출처가 됩니다.",
+    "chapter": "ops-03",
+    "track": "ops"
+  },
+  {
+    "term": "WinSCP",
+    "def": "Windows용 GUI 기반 SFTP 클라이언트로, 마우스 드래그 앤 드롭으로 EC2 서버에 파일을 전송하고 내장 터미널로 명령어를 실행할 수 있습니다.",
+    "chapter": "ops-03",
+    "track": "ops"
+  },
+  {
+    "term": "Nginx",
+    "def": "정적 파일 서빙과 리버스 프록시에 사용하는 웹 서버로, 기본 정적 파일 제공 디렉터리는 /var/www/html입니다.",
+    "chapter": "ops-04",
+    "track": "ops"
+  },
+  {
+    "term": "/var/www/html",
+    "def": "Nginx가 기본적으로 정적 파일을 제공하는 디렉터리입니다. WinSCP 업로드 권한 오류를 막기 위해 chown으로 ubuntu 계정에 소유권을 부여합니다.",
+    "chapter": "ops-04",
+    "track": "ops"
+  },
+  {
+    "term": "npm run build",
+    "def": "Vite 또는 Webpack으로 Vue.js 개발 코드를 최적화·압축하는 프로덕션 빌드 명령으로, 결과물은 dist 폴더에 생성됩니다.",
+    "chapter": "ops-04",
+    "track": "ops"
+  },
+  {
+    "term": "try_files (Vue Router 설정)",
+    "def": "Nginx의 요청 처리 지시어로, `try_files $uri $uri/ /index.html`로 설정하면 존재하지 않는 경로에서 404 대신 index.html을 반환해 SPA 새로고침 404를 방지합니다.",
+    "chapter": "ops-04",
+    "track": "ops"
+  },
+  {
+    "term": "Spring Boot 실행 .jar",
+    "def": "Gradle 빌드로 build/libs/에 생성되는 파일로, plain이 붙지 않은 jar가 내장 Tomcat을 포함한 실행 가능한 배포용 파일입니다.",
+    "chapter": "ops-04",
+    "track": "ops"
+  },
+  {
+    "term": "Zulu OpenJDK 21",
+    "def": "Azul Systems가 배포하는 Java 21 OpenJDK로, Java 17 이상을 요구하는 Spring Boot 3 실행을 위해 EC2에 설치합니다.",
+    "chapter": "ops-04",
+    "track": "ops"
+  },
+  {
+    "term": "nohup ... &",
+    "def": "터미널 연결이 끊겨도(nohup) 프로세스를 계속, 백그라운드(&)에서 실행하는 명령으로 .jar를 무중단 실행하며 로그는 nohup.out에 저장됩니다.",
+    "chapter": "ops-04",
+    "track": "ops"
+  },
+  {
+    "term": "리버스 프록시(proxy_pass)",
+    "def": "80번 포트로 들어온 요청을 서버 내부 8080번(Spring Boot)으로 전달하는 Nginx 설정으로, 사용자가 포트 번호 없이 표준 주소로 접속할 수 있게 합니다.",
+    "chapter": "ops-04",
+    "track": "ops"
+  },
+  {
+    "term": "Nginx 통합 라우팅",
+    "def": "Nginx가 80번 포트에서 모든 요청을 받아 화면 요청(/)은 Vue.js 정적 파일로, API 요청(/api/)은 백엔드 포트로 분기하는 단일 진입점 구조다. 세 가지 배포 시나리오가 공통으로 사용한다.",
+    "chapter": "ops-05",
+    "track": "ops"
+  },
+  {
+    "term": "try_files",
+    "def": "Nginx에서 요청 경로의 파일이 없을 때 index.html로 폴백시키는 설정이다. Vue Router 같은 SPA 경로에서 새로고침해도 404가 발생하지 않게 막아 준다.",
+    "chapter": "ops-05",
+    "track": "ops"
+  },
+  {
+    "term": "proxy_pass",
+    "def": "Nginx 리버스 프록시 지시어로, 특정 경로의 요청을 내부 백엔드 주소로 전달한다. 7장에서는 localhost:8080, 컨테이너 환경에서는 backend 같은 서비스명을 대상으로 쓴다.",
+    "chapter": "ops-05",
+    "track": "ops"
+  },
+  {
+    "term": "Dockerfile",
+    "def": "도커 이미지를 빌드하기 위한 명령어 모음 파일이다. FROM(베이스 이미지), WORKDIR, COPY, EXPOSE, CMD 등으로 애플리케이션을 컨테이너 이미지로 패키징한다.",
+    "chapter": "ops-05",
+    "track": "ops"
+  },
+  {
+    "term": "멀티 스테이지 빌드",
+    "def": "하나의 Dockerfile에서 빌드 단계와 실행 단계를 분리하는 방식이다. Node.js로 dist를 만든 뒤 결과물만 경량 Nginx 이미지에 복사해 최종 이미지 크기를 크게 줄인다.",
+    "chapter": "ops-05",
+    "track": "ops"
+  },
+  {
+    "term": "DockerHub",
+    "def": "도커 이미지를 업로드·공유하는 중앙 레지스트리다. 로컬에서 docker push로 이미지를 올리고 EC2에서 docker compose가 자동으로 pull해 실행한다.",
+    "chapter": "ops-05",
+    "track": "ops"
+  },
+  {
+    "term": "docker-compose.yml",
+    "def": "여러 컨테이너(db·backend·frontend)를 하나의 파일로 정의·오케스트레이션하는 설정이다. 이미지·환경변수·포트·볼륨·의존 관계를 선언하고 docker compose up으로 한 번에 실행한다.",
+    "chapter": "ops-05",
+    "track": "ops"
+  },
+  {
+    "term": "명명 볼륨(pgdata)",
+    "def": "docker-compose에서 PostgreSQL 데이터를 /var/lib/postgresql/data에 영구 보존하는 볼륨이다. 컨테이너가 삭제·재시작돼도 DB 데이터가 유지된다.",
+    "chapter": "ops-05",
+    "track": "ops"
+  },
+  {
+    "term": "MSA(마이크로서비스 아키텍처)",
+    "def": "일반 비즈니스 로직을 담당하는 Spring Boot와 AI 추론을 담당하는 FastAPI를 분리해 운영하는 구조다. Nginx가 경로에 따라 각 백엔드로 요청을 분기한다.",
+    "chapter": "ops-06",
+    "track": "ops"
+  },
+  {
+    "term": "Nginx 경로 분기(/, /api/, /ai/)",
+    "def": "Nginx가 80번 포트에서 /는 Vue.js 화면, /api/는 Spring Boot(8080), /ai/는 FastAPI(8000)로 분기하는 MSA 라우팅 핵심이다.",
+    "chapter": "ops-06",
+    "track": "ops"
+  },
+  {
+    "term": "환경 변수 DB 접속(os.getenv)",
+    "def": "FastAPI가 DB 접속 주소를 코드에 박지 않고 os.getenv(\"DATABASE_URL\")로 읽는 방식이다. 로컬·서버·도커 환경마다 코드 수정 없이 접속 정보만 주입해 바꿀 수 있다.",
+    "chapter": "ops-06",
+    "track": "ops"
+  },
+  {
+    "term": "모노레포(Monorepo)",
+    "def": "backend(FastAPI)와 frontend(Vue.js)를 하나의 저장소 안에 폴더로 분리하고 최상위에 docker-compose.yml을 두는 프로젝트 구성 방식이다.",
+    "chapter": "ops-06",
+    "track": "ops"
+  },
+  {
+    "term": "/api/status (SELECT 1)",
+    "def": "FastAPI의 상태 점검 엔드포인트로, engine.connect() 후 SELECT 1 쿼리를 실행한다. 성공하면 DB 연결이 정상이라고 판단해 ok를 응답한다.",
+    "chapter": "ops-06",
+    "track": "ops"
+  },
+  {
+    "term": "상대 경로 API 호출(/api/status)",
+    "def": "Vue.js가 백엔드 주소를 직접 쓰지 않고 /api/status 같은 상대 경로로 fetch하는 방식이다. Nginx가 경로를 보고 백엔드로 라우팅하므로 백엔드 주소가 바뀌어도 프론트 코드를 고칠 필요가 없다.",
+    "chapter": "ops-06",
+    "track": "ops"
+  },
+  {
+    "term": "이중 프록시 Dockerfile",
+    "def": "Vue.js 이미지의 Nginx 설정에서 /api/는 spring-backend:8080, /ai/는 fastapi-backend:8000으로 전달하는 구성이다. 컨테이너 간 통신이라 proxy_pass 대상에 서비스명을 사용한다.",
+    "chapter": "ops-06",
+    "track": "ops"
+  },
+  {
+    "term": "docker compose(4중 컨테이너)",
+    "def": "PostgreSQL·Spring Boot·FastAPI·Vue(+Nginx) 네 컨테이너를 하나의 docker-compose.yml로 정의해 docker compose up -d로 한 번에 실행하는 MSA 배포 방식이다.",
+    "chapter": "ops-06",
+    "track": "ops"
   }
 ];
 

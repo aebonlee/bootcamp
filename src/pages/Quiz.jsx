@@ -59,7 +59,7 @@ function Glossary() {
         <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="용어 검색 (예: JSX, FastAPI, useState)"
           style={{ flex: '1 1 280px', padding: '13px 18px', borderRadius: 12, border: `1px solid ${C.line}`, fontSize: 15, outline: 'none', background: C.cream }} />
         <div style={{ display: 'flex', gap: 8 }}>
-          {[['all', '전체'], ['react', 'React'], ['ai', 'AI']].map(([id, label]) => {
+          {[['all', '전체'], ['react', 'React'], ['ai', 'AI'], ['ops', '배포']].map(([id, label]) => {
             const active = tf === id
             return (
               <button key={id} onClick={() => setTf(id)} style={{
@@ -153,7 +153,7 @@ function QuizRunner() {
           <span style={{ fontSize: 24 }}>→</span>
         </button>
 
-        {['react', 'ai'].map((tid) => (
+        {['react', 'ai', 'ops'].map((tid) => (
           <div key={tid} style={{ marginBottom: 32 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
               <span style={{ width: 10, height: 10, borderRadius: 99, background: trackColor(tid) }} />

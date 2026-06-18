@@ -4,15 +4,16 @@ import Logo from './Logo'
 import { grad } from '../theme'
 import { useAuth } from '../hooks/useAuth'
 
+// 학습 흐름 순서: 소개 → 커리큘럼 → 트랙(프론트·AI·배포) → 자료 → 프로젝트(적용) → 퀴즈(검증)
 const NAV = [
   { to: '/about', label: 'ABOUT', ko: '소개' },
   { to: '/curriculum', label: 'CURRICULUM', ko: '커리큘럼' },
   { to: '/track/react', label: 'REACT', ko: '프론트엔드' },
   { to: '/track/ai', label: 'AI', ko: 'AI 서비스' },
   { to: '/track/ops', label: 'DEPLOY', ko: '배포·협업' },
+  { to: '/resources', label: 'RESOURCES', ko: '자료·실습' },
   { to: '/projects', label: 'PROJECTS', ko: '프로젝트' },
   { to: '/quiz', label: 'QUIZ', ko: '복습·퀴즈' },
-  { to: '/resources', label: 'RESOURCES', ko: '자료·실습' },
 ]
 
 export default function Header() {

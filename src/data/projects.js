@@ -116,6 +116,66 @@ export const PROJECTS = [
     features: ['프롬프트 → 이미지 생성 API', '로그인과 사용량(크레딧) 관리', 'Docker 컨테이너화와 배포', '모니터링·속도 최적화'],
     chapters: ['ai-04', 'ai-08', 'react-07'],
   },
+
+  // ===== 입문 추가 =====
+  {
+    id: 'p-pomodoro', level: '입문', track: 'react',
+    title: '포모도로 집중 타이머',
+    summary: 'useState와 useEffect로 카운트다운 타이머를 만들고, 집중/휴식 사이클을 자동 전환하는 생산성 앱.',
+    duration: '3시간',
+    stack: ['React', 'useEffect', 'setInterval'],
+    features: ['setInterval로 1초 단위 카운트다운', '집중·휴식 모드 자동 전환', '시작/정지/리셋 컨트롤', 'useEffect 클린업으로 타이머 정리'],
+    chapters: ['react-02', 'react-04'],
+  },
+  {
+    id: 'p-markdown', level: '입문', track: 'react',
+    title: '실시간 마크다운 미리보기',
+    summary: '제어 컴포넌트로 입력값을 관리하고, 입력과 동시에 마크다운을 HTML로 변환해 보여주는 에디터.',
+    duration: '3시간',
+    stack: ['React', '제어 컴포넌트', 'onChange'],
+    features: ['textarea 제어 컴포넌트 상태 관리', '입력 → 실시간 변환·렌더링', '좌우 분할 에디터 레이아웃', '글자 수·단어 수 카운터'],
+    chapters: ['react-03', 'react-04'],
+  },
+
+  // ===== 중급 추가 =====
+  {
+    id: 'p-kanban', level: '중급', track: 'react',
+    title: '칸반 보드 (할 일 관리)',
+    summary: '여러 컬럼 사이로 카드를 옮기는 칸반 보드를 만들며 복잡한 상태 구조와 드래그 인터랙션을 다룹니다.',
+    duration: '7시간',
+    stack: ['React', 'Context API', 'localStorage'],
+    features: ['컬럼·카드 중첩 상태 구조 설계', '드래그 앤 드롭으로 카드 이동', 'Context로 보드 전역 상태 공유', 'localStorage 자동 저장·복원'],
+    chapters: ['react-04', 'react-06'],
+  },
+  {
+    id: 'p-chatbot-web', level: '중급', track: 'ai',
+    title: 'AI 챗봇 웹앱',
+    summary: 'FastAPI 챗봇 API와 React 채팅 UI를 연결해, 입력·응답·대화 기록을 갖춘 풀스택 챗봇을 완성합니다.',
+    duration: '8시간',
+    stack: ['FastAPI', 'React', 'REST API'],
+    features: ['FastAPI 챗봇 엔드포인트 구현', 'React 채팅 인터페이스와 상태 관리', '로딩·타이핑 인디케이터 UX', '대화 컨텍스트·기록 유지'],
+    chapters: ['ai-03', 'react-05'],
+  },
+
+  // ===== 고급 추가 (배포·협업 연계) =====
+  {
+    id: 'p-git-portfolio', level: '고급', track: 'ops',
+    title: 'Git 협업 포트폴리오 배포',
+    summary: 'React 포트폴리오를 Git·GitHub으로 협업 관리하고, 빌드 결과물을 AWS EC2 + Nginx로 직접 배포합니다.',
+    duration: '10시간+',
+    stack: ['Git', 'GitHub', 'AWS', 'Nginx'],
+    features: ['브랜치 전략과 Pull Request 협업', 'React 빌드와 정적 파일 산출', 'EC2 + Nginx 정적 호스팅 배포', '커스텀 도메인·SPA 라우팅 설정'],
+    chapters: ['ops-01', 'ops-04', 'react-07'],
+  },
+  {
+    id: 'p-docker-msa', level: '고급', track: 'ops',
+    title: '도커 MSA 풀스택 서비스',
+    summary: 'FastAPI·Vue·PostgreSQL을 컨테이너로 묶어 DockerHub에 올리고, EC2에서 docker-compose로 통합 배포합니다.',
+    duration: '16시간+',
+    stack: ['Docker', 'docker-compose', 'PostgreSQL', 'DockerHub'],
+    features: ['서비스별 Dockerfile 작성', 'DockerHub 이미지 빌드·푸시', 'docker-compose 통합 오케스트레이션', 'Nginx 통합 라우팅과 MSA 구성'],
+    chapters: ['ops-05', 'ops-06'],
+  },
 ]
 
 export const byLevel = (lv) => PROJECTS.filter((p) => p.level === lv)
