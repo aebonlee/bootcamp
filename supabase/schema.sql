@@ -60,20 +60,6 @@ drop policy if exists "webpro_progress_delete_own" on public.webpro_progress;
 create policy "webpro_progress_delete_own" on public.webpro_progress
   for delete using (auth.uid() = user_id);
 
--- ===== (선택) 트랙 수강 신청 =====
-create table if not exists public.webpro_enrollments (
-  user_id     uuid not null references auth.users(id) on delete cascade,
-  track       text not null,           -- react | ai
-  created_at  timestamptz not null default now(),
-  primary key (user_id, track)
-);
-
-alter table public.webpro_enrollments enable row level security;
-
-drop policy if exists "webpro_enrollments_all_own" on public.webpro_enrollments;
-create policy "webpro_enrollments_all_own" on public.webpro_enrollments
-  for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
-
 -- ===== 퀴즈 결과(최고 점수) =====
 create table if not exists public.webpro_quiz_results (
   user_id     uuid not null references auth.users(id) on delete cascade,

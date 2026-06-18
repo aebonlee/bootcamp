@@ -13,3 +13,8 @@ yarn-error.log*
 
 # 교재 PDF 비배포
 public/*.pdf
+
+# Playwright
+/test-results
+/playwright-report
+/.playwright

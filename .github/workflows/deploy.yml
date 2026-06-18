@@ -39,7 +39,10 @@ jobs:
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
         run: npm run build
 
-      # SPA 라우팅: 새로고침/딥링크 404 방지
+      # 라우트별 정적 메타(title·OG) 프리렌더 — 검색·공유 미리보기 품질 향상
+      - run: npm run prerender
+
+      # SPA 라우팅: 프리렌더되지 않은 경로의 새로고침/딥링크 404 방지
       - run: cp dist/index.html dist/404.html
 
       - uses: actions/upload-pages-artifact@v3

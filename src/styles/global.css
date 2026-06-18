@@ -53,7 +53,7 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
 .navlink:hover { opacity: 0.6; }
 .cta-pill { transition: filter .2s; }
 .cta-pill:hover { filter: brightness(1.08); }
-@media (max-width: 1400px) {
+@media (max-width: 1140px) {
   .desknav { display: none !important; }
   .burger { display: inline-flex !important; }
 }

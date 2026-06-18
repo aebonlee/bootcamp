@@ -18,9 +18,13 @@ const NAV = [
   { to: '/coaching', label: 'COACHING', ko: '코칭·가이드' },
 ]
 
+const TRACK_NAV = NAV.filter((n) => n.to.startsWith('/track/'))
+const MAIN_NAV = NAV.filter((n) => !n.to.startsWith('/track/'))
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [tracksOpen, setTracksOpen] = useState(false)
   const loc = useLocation()
   const nav = useNavigate()
   const { user } = useAuth()
@@ -31,7 +35,19 @@ export default function Header() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-  useEffect(() => setMenuOpen(false), [loc.pathname])
+  useEffect(() => { setMenuOpen(false); setTracksOpen(false) }, [loc.pathname])
+
+  const NavItem = (n) => {
+    const active = loc.pathname.startsWith(n.to)
+    return (
+      <Link key={n.to} to={n.to} className="navlink"
+        style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', lineHeight: 1.08, color: '#15171C' }}>
+        <span style={{ fontSize: 15.5, fontWeight: 600, letterSpacing: '0.04em' }}>{n.label}</span>
+        <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.02em', color: '#1A45D8', marginTop: 1.5 }}>{n.ko}</span>
+        {active && <span style={{ position: 'absolute', left: 0, right: 0, bottom: -9, height: 2, borderRadius: 2, background: '#1A45D8' }} />}
+      </Link>
+    )
+  }
 
   return (
     <>
@@ -49,18 +65,34 @@ export default function Header() {
           <div style={{ padding: '0 clamp(16px,2vw,28px)', height: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20 }}>
             <Link to="/" aria-label="홈"><Logo /></Link>
 
-            <nav className="desknav" style={{ alignItems: 'center', gap: 'clamp(12px,1.6vw,28px)' }}>
-              {NAV.map((n) => {
-                const active = loc.pathname.startsWith(n.to)
-                return (
-                  <Link key={n.to} to={n.to} className="navlink"
-                    style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', lineHeight: 1.08, color: '#15171C' }}>
-                    <span style={{ fontSize: 15.5, fontWeight: 600, letterSpacing: '0.04em' }}>{n.label}</span>
-                    <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.02em', color: '#1A45D8', marginTop: 1.5 }}>{n.ko}</span>
-                    {active && <span style={{ position: 'absolute', left: 0, right: 0, bottom: -9, height: 2, borderRadius: 2, background: '#1A45D8' }} />}
-                  </Link>
-                )
-              })}
+            <nav className="desknav" style={{ alignItems: 'center', gap: 'clamp(12px,1.6vw,26px)' }}>
+              {MAIN_NAV.slice(0, 2).map(NavItem)}
+
+              {/* 학습 트랙 드롭다운 */}
+              <div style={{ position: 'relative' }} onMouseEnter={() => setTracksOpen(true)} onMouseLeave={() => setTracksOpen(false)}>
+                <button className="navlink" onClick={() => setTracksOpen((o) => !o)} aria-expanded={tracksOpen} aria-haspopup="true"
+                  style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', lineHeight: 1.08, color: '#15171C' }}>
+                  <span style={{ fontSize: 15.5, fontWeight: 600, letterSpacing: '0.04em' }}>TRACKS <span style={{ fontSize: 11 }}>▾</span></span>
+                  <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.02em', color: '#1A45D8', marginTop: 1.5 }}>학습 트랙</span>
+                  {loc.pathname.startsWith('/track/') && <span style={{ position: 'absolute', left: 0, right: 0, bottom: -9, height: 2, borderRadius: 2, background: '#1A45D8' }} />}
+                </button>
+                {tracksOpen && (
+                  <div style={{ position: 'absolute', top: 'calc(100% + 16px)', right: 0, minWidth: 210, background: '#fff', border: '1px solid rgba(10,11,13,0.1)', borderRadius: 16, boxShadow: '0 16px 40px rgba(10,11,13,0.14)', padding: 8, zIndex: 80 }}>
+                    {TRACK_NAV.map((t) => {
+                      const active = loc.pathname === t.to
+                      return (
+                        <Link key={t.to} to={t.to} onClick={() => setTracksOpen(false)}
+                          style={{ display: 'flex', alignItems: 'baseline', gap: 8, padding: '10px 14px', borderRadius: 10, background: active ? 'rgba(26,69,216,0.08)' : 'transparent' }}>
+                          <span style={{ fontSize: 14.5, fontWeight: 700, color: '#15171C', minWidth: 64 }}>{t.label}</span>
+                          <span style={{ fontSize: 13, color: '#6B7178' }}>{t.ko}</span>
+                        </Link>
+                      )
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {MAIN_NAV.slice(2).map(NavItem)}
             </nav>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
