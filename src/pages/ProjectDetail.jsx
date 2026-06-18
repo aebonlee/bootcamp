@@ -9,13 +9,14 @@ import { Eyebrow, TagRow } from '../components/ui'
 import CodeBlock from '../components/CodeBlock'
 
 const TRACK_META = {
+  web: { label: '웹 기초', color: '#7C3AED', grad: 'linear-gradient(135deg,#A78BFA,#7C3AED)' },
   react: { label: 'React', color: '#1A45D8', grad: grad.blue },
   ai: { label: 'AI', color: '#E0470A', grad: 'linear-gradient(135deg,#FF7A1E,#E0470A)' },
   fullstack: { label: '풀스택', color: '#7A3CF0', grad: 'linear-gradient(135deg,#9B6BFF,#6A2BD9)' },
   ops: { label: '배포', color: '#0E8F63', grad: 'linear-gradient(135deg,#22C58A,#0E8F63)' },
 }
 const LEVEL_COLOR = { 입문: '#16A34A', 중급: '#1A45D8', 고급: '#E0470A' }
-const chBadge = (t) => (t === 'ai' ? 'AI' : t === 'ops' ? 'Deploy' : 'React')
+const chBadge = (t) => (t === 'ai' ? 'AI' : t === 'ops' ? 'Deploy' : t === 'web' ? 'Web' : 'React')
 
 export default function ProjectDetail() {
   const { id } = useParams()

@@ -32,7 +32,13 @@ const FAQS = [
 
 export default function Home() {
   const { doneCount } = useProgress() || {}
-  const preview = [...byTrack('web').slice(0, 2), ...byTrack('react').slice(0, 2), ...byTrack('ai').slice(0, 1), ...byTrack('ops').slice(0, 1)]
+  // 메인 커리큘럼 프리뷰: 트랙별로 9장을 뽑아 3×3 정렬
+  const preview = [
+    ...byTrack('web').slice(0, 3),
+    ...byTrack('react').slice(0, 2),
+    ...byTrack('ai').slice(0, 2),
+    ...byTrack('ops').slice(0, 2),
+  ]
 
   return (
     <main>
@@ -155,7 +161,7 @@ export default function Home() {
             </div>
             <Link to="/curriculum" className="btn-ghost-d" style={{ padding: '13px 28px', borderRadius: 60, border: '1px solid rgba(255,255,255,0.25)', color: '#fff', fontSize: 14.5, fontWeight: 600 }}>전체 {TOTAL_LESSONS}개 강의 보기 →</Link>
           </Reveal>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 'clamp(14px,1.6vw,22px)' }}>
+          <div className="grid-3">
             {preview.map((ch, i) => (
               <Reveal key={ch.id} delay={(i % 3) * 70}>
                 <ChapterCard ch={ch} progress={doneCount ? { done: doneCount(ch.id) } : null} />

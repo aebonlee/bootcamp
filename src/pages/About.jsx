@@ -22,7 +22,7 @@ export default function About() {
             Join the<br /><span style={{ fontWeight: 800 }}>Bootcamp</span>
           </h1>
           <p style={{ margin: '26px 0 0', maxWidth: 620, fontSize: 'clamp(15px,2vw,19px)', lineHeight: 1.75, color: '#6B7178' }}>
-            DreamIT 부트캠프는 DreamIT Biz가 만든 실무형 웹 개발 학습 플랫폼입니다. React 프론트엔드와 생성형 AI 웹 서비스, 두 트랙을 통해 {CHAPTERS.length}개 챕터 {totalSec}개 강의로 웹 개발의 처음부터 끝까지를 다룹니다.
+            DreamIT 부트캠프는 DreamIT Biz가 만든 실무형 웹 개발 학습 플랫폼입니다. 웹 기초(HTML·CSS·JS) · React 프론트엔드 · 생성형 AI 웹 서비스 · 실전 배포까지 네 트랙, {CHAPTERS.length}개 챕터 {totalSec}개 강의로 웹 개발의 처음부터 끝까지를 다룹니다.
           </p>
         </div>
       </section>

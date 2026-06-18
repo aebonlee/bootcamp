@@ -1,5 +1,5 @@
 // 학습 후 직접 만들어 보는 프로젝트 예제 — 입문 → 중급 → 고급
-// track: react | ai | fullstack
+// track: web | react | ai | ops | fullstack
 export const PROJECT_LEVELS = ['입문', '중급', '고급']
 
 export const PROJECTS = [

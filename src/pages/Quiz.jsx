@@ -6,6 +6,9 @@ import { QUIZZES, GLOSSARY, quizOf, TOTAL_QUIZ, TOTAL_TERMS } from '../data/revi
 import { Eyebrow } from '../components/ui'
 import Reveal from '../components/Reveal'
 
+// 트랙별 짧은 배지 라벨
+const TRACK_BADGE = { web: 'Web', react: 'React', ai: 'AI', ops: 'Deploy' }
+
 export default function Quiz() {
   const [tab, setTab] = useState('terms')
   return (
@@ -80,7 +83,7 @@ function Glossary() {
             <Reveal key={g.term + i} delay={(i % 6) * 30} style={{ border: `1px solid ${C.line}`, borderRadius: 16, padding: '20px 22px', background: '#fff' }}>
               <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10 }}>
                 <h3 style={{ margin: 0, fontSize: 17, fontWeight: 800, color: tc, letterSpacing: '-0.01em' }}>{g.term}</h3>
-                {ch && <Link to={`/lesson/${g.chapter}`} style={{ fontSize: 11.5, fontWeight: 600, color: '#9CA2AD' }}>{g.track === 'ai' ? 'AI' : 'React'} {String(ch.no).padStart(2, '0')} →</Link>}
+                {ch && <Link to={`/lesson/${g.chapter}`} style={{ fontSize: 11.5, fontWeight: 600, color: '#9CA2AD' }}>{TRACK_BADGE[g.track]} {String(ch.no).padStart(2, '0')} →</Link>}
               </div>
               <p style={{ margin: '10px 0 0', fontSize: 14, lineHeight: 1.65, color: '#3A3F49' }}>{g.def}</p>
             </Reveal>

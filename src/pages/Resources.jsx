@@ -22,7 +22,7 @@ export default function Resources() {
             부트캠프의 모든 강의 내용을 웹에서 바로 학습하세요. {CHAPTERS.length}개 챕터 · {totalSec}개 강의 · {totalLabs}개 실습 예제의 본문과 코드를 챕터별로 상세히 제공합니다.
           </p>
           <div style={{ display: 'flex', gap: 28, marginTop: 30, flexWrap: 'wrap' }}>
-            {[['챕터', '16개'], ['강의', `${totalSec}개`], ['실습 예제', `${totalLabs}개`]].map(([k, v]) => (
+            {[['챕터', `${CHAPTERS.length}개`], ['강의', `${totalSec}개`], ['실습 예제', `${totalLabs}개`]].map(([k, v]) => (
               <div key={k}>
                 <div style={{ fontSize: 'clamp(22px,3vw,34px)', fontWeight: 800, letterSpacing: '-0.02em' }}>{v}</div>
                 <div style={{ fontSize: 13, color: '#6B7178', marginTop: 4 }}>{k}</div>

@@ -27,7 +27,7 @@ export default function Curriculum() {
           전체 <span style={{ fontWeight: 800 }}>커리큘럼</span>
         </h1>
         <p style={{ margin: '24px 0 0', maxWidth: 640, fontSize: 'clamp(15px,2vw,18px)', lineHeight: 1.7, color: '#9CA2AD' }}>
-          {CHAPTERS.length}개 챕터 · {totalSec}개 강의. React 프론트엔드와 AI 웹 서비스, 두 트랙을 자유롭게 학습하세요.
+          {CHAPTERS.length}개 챕터 · {totalSec}개 강의. 웹 기초 · React 프론트엔드 · AI 웹 서비스 · 실전 배포, 네 트랙을 자유롭게 학습하세요.
         </p>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 'clamp(28px,4vw,44px)' }}>

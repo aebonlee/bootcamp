@@ -68,3 +68,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .md-code::-webkit-scrollbar { height: 9px; }
 .md-code::-webkit-scrollbar-thumb { background: #2b3650; border-radius: 9px; }
 .md-body :first-child { margin-top: 0 !important; }
+
+/* 메인 카드 3열 그리드(3×3 정렬) — 반응형으로 2열 / 1열 */
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 22px); }
+@media (max-width: 880px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .grid-3 { grid-template-columns: 1fr; } }

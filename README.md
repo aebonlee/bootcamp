@@ -1,23 +1,32 @@
-# WEB PRO — 웹개발 부트캠프
+# DreamIT 부트캠프 — 웹개발 학습 플랫폼
 
-React 프론트엔드부터 생성형 AI 웹 서비스까지, **16개 챕터 · 62개 강의**로 완성하는 실무형 웹 개발 학습 플랫폼.
+웹 기초(HTML·CSS·JS)부터 React 프론트엔드, 생성형 AI 웹 서비스, 실전 배포까지 — **4개 트랙 · 27개 챕터 · 137개 강의**로 완성하는 실무형 웹 개발 학습 플랫폼.
 
 🔗 **https://bootcamp.dreamitbiz.com**
 
 NOVAWORKS 디자인 아티팩트(블루 그라데이션 + 오렌지 포인트, Pretendard, 플로팅 필 헤더)를 React로 포팅하고,
-저장소의 교재 PDF(`docs/`)를 기반으로 커리큘럼을 구성했습니다.
+교재 내용을 웹페이지로 재구성해 커리큘럼을 구성했습니다(교재 원본 파일은 비배포).
 
 ## 기술 스택
-- **React 18 + Vite 5** — SPA, `react-router-dom`
-- **Supabase** — 인증(구글·카카오 OAuth) + 학습 진도 저장 (`webpro_` 접두사)
-- **sharp** — OG 이미지(1200×630) 자동 생성
+- **React 18 + Vite 5** — SPA, `react-router-dom`, 챕터 본문 lazy 로딩
+- **Supabase** — 인증(구글·카카오 OAuth) + 학습 진도 저장 (`webpro_` 접두사, RLS)
+- **react-markdown + react-syntax-highlighter** — 강의 본문 렌더링(구문강조·녹색 주석·복사)
+- **sharp** — OG 이미지(1200×630) 생성
 - **GitHub Actions** — `main` 푸시 시 GitHub Pages 자동 배포 (커스텀 도메인)
 
-## 두 개의 학습 트랙
+## 4개의 학습 트랙
 | 트랙 | 내용 | 챕터 |
 |------|------|------|
+| **웹 기초** | HTML 구조 · CSS 기초 · CSS 레이아웃 · JS 문법 · JS와 브라우저(DOM/이벤트/fetch) | 5 |
 | **React 프론트엔드** | JSX · Props/State · UI · 상태관리 · API/인증 · 설계 · 배포 · 실무 | 8 |
 | **AI 웹 서비스** | FastAPI/Hugging Face · Transformers · NLP · 이미지생성 · 음성 · CV · 멀티모달 · 배포운영 | 8 |
+| **실전 배포·협업** | Git·GitHub · AI챗봇 배포 · EC2/Docker/WinSCP · 프레임워크 AWS 배포 · 풀스택·MSA | 6 |
+
+## 주요 기능
+- **강의** — 좌측 목차(섹션 진도 체크) + 우측 본문(설명·코드·표·상세 주석)
+- **프로젝트** — 입문·중급·고급 18개, 상세 페이지에 **실제 구현 코드 + 라이브 데모/결과 미리보기**
+- **복습·퀴즈** — 핵심 용어 216개(검색·트랙필터) + 퀴즈 135문항(챕터별/랜덤, 채점·해설·최고점)
+- **자료실** — 전 챕터 목차·실습 예제 모아보기
 
 ## 로컬 개발
 ```bash
