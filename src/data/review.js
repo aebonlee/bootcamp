@@ -1,5 +1,290 @@
-// 자동 생성: 챕터 본문에서 추출한 핵심 용어 + 퀴즈 (react·ai·ops 22개 챕터)
+// 자동 생성: 챕터 본문에서 추출한 핵심 용어 + 퀴즈 (web·react·ai·ops 27개 챕터)
 export const QUIZZES = {
+  "web-01": [
+    {
+      "q": "HTML 문서 맨 위 첫 줄에 반드시 와야 하며, 문서가 HTML5임을 알리는 선언은?",
+      "options": [
+        "<html>",
+        "<!DOCTYPE html>",
+        "<meta charset>",
+        "<head>"
+      ],
+      "answer": 1,
+      "explain": "<!DOCTYPE html>은 HTML5 문서임을 브라우저에 알리는 선언으로 문서 맨 위 첫 줄에 위치해야 한다. 없으면 브라우저가 쿼크 모드로 동작할 수 있다."
+    },
+    {
+      "q": "한글이 깨지지 않게 하려면 head에 어떤 설정이 필요한가?",
+      "options": [
+        "<meta name=\"viewport\">",
+        "<title>",
+        "<meta charset=\"UTF-8\">",
+        "<link rel=\"stylesheet\">"
+      ],
+      "answer": 2,
+      "explain": "<meta charset=\"UTF-8\">은 문자 인코딩을 지정한다. 이것이 없거나 잘못되면 한글이 깨져 표시된다."
+    },
+    {
+      "q": "내용상 '중요함'을 의미하는 강조 태그로 가장 적절한 것은?",
+      "options": [
+        "<b>",
+        "<strong>",
+        "<big>",
+        "<mark>"
+      ],
+      "answer": 1,
+      "explain": "<strong>은 내용상 중요함을 의미하는 시맨틱 강조 태그다. <b>는 의미 없는 단순 굵게 표시다."
+    },
+    {
+      "q": "이미지를 볼 수 없을 때 대체 설명을 제공하며 접근성에 중요한 <img>의 속성은?",
+      "options": [
+        "src",
+        "title",
+        "alt",
+        "name"
+      ],
+      "answer": 2,
+      "explain": "alt 속성은 이미지가 안 보일 때 대체 텍스트를 제공하고 스크린 리더가 읽어 주므로 접근성과 SEO에 중요하다."
+    },
+    {
+      "q": "로그인처럼 민감한 정보를 폼으로 보낼 때 권장되는 전송 방식은?",
+      "options": [
+        "method=\"get\"",
+        "method=\"post\"",
+        "method=\"put\"",
+        "method 없이 전송"
+      ],
+      "answer": 1,
+      "explain": "GET은 데이터가 URL에 그대로 노출되므로 민감 정보에 부적합하다. 로그인·회원가입 등은 본문에 담아 보내는 POST가 권장된다."
+    }
+  ],
+  "web-02": [
+    {
+      "q": "여러 HTML 문서에서 재사용하기 좋고 유지보수가 가장 쉬운 CSS 적용 방법은?",
+      "options": [
+        "인라인 스타일(style 속성)",
+        "내부 스타일(style 태그)",
+        "외부 스타일(link로 .css 연결)",
+        "주석으로 작성"
+      ],
+      "answer": 2,
+      "explain": "외부 스타일은 별도의 .css 파일을 여러 문서가 link로 공유하므로 재사용성과 유지보수성이 가장 높습니다."
+    },
+    {
+      "q": "클래스 선택자를 올바르게 표기한 것은?",
+      "options": [
+        "#box",
+        ".box",
+        "*box",
+        "box()"
+      ],
+      "answer": 1,
+      "explain": "클래스 선택자는 점(.)으로 시작합니다. 우물정(#)은 아이디 선택자, *는 전체 선택자입니다."
+    },
+    {
+      "q": "box-sizing: border-box로 설정했을 때, width: 200px·padding: 20px·border: 2px인 요소의 실제 가로 너비는?",
+      "options": [
+        "244px",
+        "224px",
+        "200px",
+        "160px"
+      ],
+      "answer": 2,
+      "explain": "border-box는 지정한 width(200px) 안에 padding과 border가 포함되므로 실제 너비는 그대로 200px입니다."
+    },
+    {
+      "q": "박스 모델에서 콘텐츠와 테두리 사이의 '안쪽 여백'을 가리키는 영역은?",
+      "options": [
+        "margin",
+        "border",
+        "padding",
+        "content"
+      ],
+      "answer": 2,
+      "explain": "padding은 콘텐츠와 테두리(border) 사이의 안쪽 여백입니다. margin은 테두리 바깥쪽 여백입니다."
+    },
+    {
+      "q": "루트(html)의 font-size가 16px일 때 1.5rem은 몇 px인가?",
+      "options": [
+        "16px",
+        "20px",
+        "24px",
+        "32px"
+      ],
+      "answer": 2,
+      "explain": "rem은 루트 font-size를 기준으로 하므로 16px × 1.5 = 24px입니다. 위치와 무관하게 일정한 값을 가집니다."
+    }
+  ],
+  "web-03": [
+    {
+      "q": "Flexbox에서 주축 방향의 정렬·분배를 담당하는 속성은?",
+      "options": [
+        "align-items",
+        "justify-content",
+        "flex-wrap",
+        "align-self"
+      ],
+      "answer": 1,
+      "explain": "justify-content는 주축(main axis) 방향의 정렬을, align-items는 교차축(cross axis) 정렬을 담당합니다."
+    },
+    {
+      "q": "position:absolute 요소는 무엇을 기준으로 배치되는가?",
+      "options": [
+        "항상 뷰포트",
+        "자기 원래 위치",
+        "가장 가까운 position이 static이 아닌 조상",
+        "부모의 부모 요소"
+      ],
+      "answer": 2,
+      "explain": "absolute는 가장 가까운 positioned 조상(relative/absolute/fixed/sticky)을 기준으로 합니다. 그런 조상이 없으면 초기 컨테이닝 블록(뷰포트)을 기준으로 합니다."
+    },
+    {
+      "q": "Grid에서 칸 크기에 맞춰 열 개수를 자동으로 조절해 반응형 그리드를 만드는 패턴은?",
+      "options": [
+        "repeat(3, 1fr)",
+        "grid-template-areas",
+        "repeat(auto-fit, minmax(220px, 1fr))",
+        "grid-column: span 2"
+      ],
+      "answer": 2,
+      "explain": "repeat(auto-fit, minmax(220px, 1fr))는 각 칸의 최소 너비를 보장하면서 공간에 맞춰 열 개수를 자동 조절하여, 미디어 쿼리 없이도 반응형 그리드를 만듭니다."
+    },
+    {
+      "q": "모바일에서 미디어 쿼리가 올바르게 동작하기 위해 HTML head에 반드시 필요한 것은?",
+      "options": [
+        "<meta charset=\"UTF-8\">",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+        "<link rel=\"stylesheet\">",
+        "<title> 태그"
+      ],
+      "answer": 1,
+      "explain": "viewport 메타 태그가 없으면 모바일 브라우저가 데스크톱 너비로 가정해 미디어 쿼리가 의도대로 동작하지 않습니다."
+    },
+    {
+      "q": "display:none과 visibility:hidden의 차이로 옳은 것은?",
+      "options": [
+        "둘 다 공간을 차지한다",
+        "display:none은 공간도 사라지고, visibility:hidden은 공간이 남는다",
+        "display:none은 공간이 남고, visibility:hidden은 공간이 사라진다",
+        "둘 다 공간이 사라진다"
+      ],
+      "answer": 1,
+      "explain": "display:none은 요소를 렌더링에서 완전히 제거해 공간조차 차지하지 않는 반면, visibility:hidden은 보이지 않지만 원래 차지하던 공간은 그대로 남습니다."
+    }
+  ],
+  "web-04": [
+    {
+      "q": "값을 다시 바꿀 수 없는 변수를 선언할 때 사용하는 키워드는?",
+      "options": [
+        "var",
+        "let",
+        "const",
+        "static"
+      ],
+      "answer": 2,
+      "explain": "const 는 재할당이 불가능한 상수를 선언합니다. 값이 바뀌어야 하면 let 을 씁니다."
+    },
+    {
+      "q": "다음 중 값과 자료형을 모두 비교하는 연산자는?",
+      "options": [
+        "==",
+        "===",
+        "=",
+        "!="
+      ],
+      "answer": 1,
+      "explain": "=== 는 값과 타입을 모두 비교하는 엄격 비교 연산자로 권장됩니다. == 는 타입을 변환해 비교합니다."
+    },
+    {
+      "q": "typeof null 의 결과로 출력되는 값은?",
+      "options": [
+        "null",
+        "undefined",
+        "object",
+        "boolean"
+      ],
+      "answer": 2,
+      "explain": "null 의 typeof 는 historical 버그로 인해 object 로 나옵니다. 자주 출제되는 함정입니다."
+    },
+    {
+      "q": "배열 [10, 20, 30] 에서 20 에 접근하는 올바른 표현은?",
+      "options": [
+        "arr[1]",
+        "arr[2]",
+        "arr(1)",
+        "arr.20"
+      ],
+      "answer": 0,
+      "explain": "배열 인덱스는 0부터 시작하므로 두 번째 요소 20 은 arr[1] 로 접근합니다."
+    },
+    {
+      "q": "화살표 함수 const square = (n) => n * n; 에서 square(3) 의 결과는?",
+      "options": [
+        "6",
+        "9",
+        "3",
+        "에러"
+      ],
+      "answer": 1,
+      "explain": "본문이 한 줄인 화살표 함수는 return 을 생략하고 값을 반환합니다. 3 * 3 = 9 입니다."
+    }
+  ],
+  "web-05": [
+    {
+      "q": "배열의 각 요소를 변환해 길이가 같은 '새 배열'을 반환하는 메서드는?",
+      "options": [
+        "forEach()",
+        "map()",
+        "filter()",
+        "reduce()"
+      ],
+      "answer": 1,
+      "explain": "map()은 각 요소에 콜백을 적용한 결과로 길이가 동일한 새 배열을 반환합니다. filter는 추리고, reduce는 하나의 값으로 누적하며, forEach는 반환값이 없습니다."
+    },
+    {
+      "q": "CSS 선택자로 일치하는 '첫 번째' 요소 하나를 선택하는 메서드는?",
+      "options": [
+        "querySelectorAll()",
+        "getElementsByClassName()",
+        "querySelector()",
+        "createElement()"
+      ],
+      "answer": 2,
+      "explain": "querySelector()는 CSS 선택자에 일치하는 첫 번째 요소를 반환합니다(없으면 null). querySelectorAll은 모든 요소를, createElement는 새 요소를 만듭니다."
+    },
+    {
+      "q": "폼 제출 시 페이지가 새로고침되는 기본 동작을 막으려면?",
+      "options": [
+        "event.stopPropagation()",
+        "event.preventDefault()",
+        "return false만 쓰면 됨",
+        "form.reset()"
+      ],
+      "answer": 1,
+      "explain": "event.preventDefault()가 폼 제출의 기본 동작(새로고침)을 막습니다. stopPropagation은 이벤트 전파를 막는 별개의 기능입니다."
+    },
+    {
+      "q": "다음 코드의 출력 순서로 옳은 것은? console.log('A'); setTimeout(() => console.log('B'), 0); console.log('C');",
+      "options": [
+        "A, B, C",
+        "A, C, B",
+        "B, A, C",
+        "C, B, A"
+      ],
+      "answer": 1,
+      "explain": "setTimeout의 콜백은 지연 시간이 0이어도 비동기로 처리되어 현재 동기 코드가 모두 끝난 뒤 실행됩니다. 따라서 A, C, B 순서입니다."
+    },
+    {
+      "q": "async/await에 대한 설명으로 올바른 것은?",
+      "options": [
+        "await는 어디서든 자유롭게 쓸 수 있다",
+        "await는 async 함수 안에서만 쓸 수 있고 Promise 결과를 기다려 받는다",
+        "async 함수는 Promise가 아닌 일반 값을 반환한다",
+        "await는 Promise를 무시하고 즉시 다음 줄을 실행한다"
+      ],
+      "answer": 1,
+      "explain": "await는 async 함수 내부에서만 사용 가능하며 Promise가 완료될 때까지 기다린 후 결과값을 꺼냅니다. async 함수의 반환값은 항상 Promise로 감싸집니다."
+    }
+  ],
   "react-01": [
     {
       "q": "JSX에서 HTML의 class와 for 속성은 각각 무엇으로 작성해야 하는가?",
@@ -1257,6 +1542,246 @@ export const QUIZZES = {
 };
 
 export const GLOSSARY = [
+  {
+    "term": "시맨틱 태그",
+    "def": "header·nav·main·article처럼 영역의 의미와 역할을 나타내는 태그. 접근성과 검색엔진 이해도를 높인다.",
+    "chapter": "web-01",
+    "track": "web"
+  },
+  {
+    "term": "DOCTYPE",
+    "def": "문서가 HTML5 표준임을 브라우저에 알리는 선언으로, 문서 맨 위 첫 줄에 위치한다.",
+    "chapter": "web-01",
+    "track": "web"
+  },
+  {
+    "term": "요소(element)",
+    "def": "여는 태그·내용·닫는 태그로 이루어진 HTML의 기본 단위. 예: <p>내용</p>.",
+    "chapter": "web-01",
+    "track": "web"
+  },
+  {
+    "term": "속성(attribute)",
+    "def": "태그에 추가 정보를 주는 이름-값 쌍. 예: <a href=\"...\">의 href.",
+    "chapter": "web-01",
+    "track": "web"
+  },
+  {
+    "term": "alt 텍스트",
+    "def": "이미지를 볼 수 없을 때 대신 제공되는 설명 텍스트로, 접근성과 SEO에 중요하다.",
+    "chapter": "web-01",
+    "track": "web"
+  },
+  {
+    "term": "viewport",
+    "def": "모바일 화면 너비에 맞춰 페이지가 반응형으로 표시되도록 설정하는 meta 태그 값.",
+    "chapter": "web-01",
+    "track": "web"
+  },
+  {
+    "term": "폼(form)",
+    "def": "사용자 입력을 모아 서버로 전송하는 컨테이너 태그. action과 method 속성으로 전송 대상과 방식을 정한다.",
+    "chapter": "web-01",
+    "track": "web"
+  },
+  {
+    "term": "GET / POST",
+    "def": "폼 데이터 전송 방식. GET은 URL에 노출되어 조회에, POST는 본문에 담겨 로그인·가입 등 민감 정보에 적합하다.",
+    "chapter": "web-01",
+    "track": "web"
+  },
+  {
+    "term": "선택자(Selector)",
+    "def": "CSS 규칙을 어떤 HTML 요소에 적용할지 지정하는 부분입니다. 태그·클래스·아이디 등 다양한 형태가 있습니다.",
+    "chapter": "web-02",
+    "track": "web"
+  },
+  {
+    "term": "명시도(Specificity)",
+    "def": "여러 CSS 규칙이 충돌할 때 어떤 규칙이 우선 적용될지 결정하는 점수입니다. 인라인 > 아이디 > 클래스 > 태그 순으로 강합니다.",
+    "chapter": "web-02",
+    "track": "web"
+  },
+  {
+    "term": "박스 모델",
+    "def": "모든 요소를 content·padding·border·margin 4개 영역의 사각 박스로 보는 모델입니다. 요소의 크기와 여백 계산의 기준이 됩니다.",
+    "chapter": "web-02",
+    "track": "web"
+  },
+  {
+    "term": "box-sizing",
+    "def": "요소의 너비·높이에 padding과 border를 포함할지 결정하는 속성입니다. border-box로 설정하면 width 안에 패딩·테두리가 포함됩니다.",
+    "chapter": "web-02",
+    "track": "web"
+  },
+  {
+    "term": "display",
+    "def": "요소가 화면에 배치되는 방식을 정하는 속성입니다. block, inline, inline-block, none 등의 값을 가집니다.",
+    "chapter": "web-02",
+    "track": "web"
+  },
+  {
+    "term": "rem",
+    "def": "루트 요소(html)의 font-size를 기준으로 하는 상대 단위입니다. 위치와 상관없이 값이 일정해 글자 크기와 여백에 자주 쓰입니다.",
+    "chapter": "web-02",
+    "track": "web"
+  },
+  {
+    "term": "em",
+    "def": "현재 요소의 font-size를 기준으로 하는 상대 단위입니다. 부모 값에 따라 변하며 중첩되면 값이 누적됩니다.",
+    "chapter": "web-02",
+    "track": "web"
+  },
+  {
+    "term": "CSS 변수",
+    "def": "반복되는 값을 --이름 형태로 저장해 두고 var()로 불러 쓰는 사용자 정의 속성입니다. 한 곳에서 값을 관리할 수 있어 유지보수가 쉽습니다.",
+    "chapter": "web-02",
+    "track": "web"
+  },
+  {
+    "term": "Flexbox",
+    "def": "한 방향(가로 또는 세로)으로 요소를 정렬·분배하는 1차원 레이아웃 모델. 부모에 display:flex를 주어 사용한다.",
+    "chapter": "web-03",
+    "track": "web"
+  },
+  {
+    "term": "Grid",
+    "def": "행과 열을 동시에 제어하는 2차원 레이아웃 모델. 페이지 전체 골격이나 격자형 배치에 적합하다.",
+    "chapter": "web-03",
+    "track": "web"
+  },
+  {
+    "term": "주축(main axis)",
+    "def": "flex-direction이 정하는 flex 아이템의 진행 방향. row면 가로, column이면 세로이며 justify-content가 이 축을 정렬한다.",
+    "chapter": "web-03",
+    "track": "web"
+  },
+  {
+    "term": "교차축(cross axis)",
+    "def": "주축에 수직인 축. align-items가 이 축에서의 정렬을 담당한다.",
+    "chapter": "web-03",
+    "track": "web"
+  },
+  {
+    "term": "fr 단위",
+    "def": "Grid에서 남는 공간을 비율로 나누는 유연 단위. 1fr 2fr이면 가용 공간을 1:2로 분배한다.",
+    "chapter": "web-03",
+    "track": "web"
+  },
+  {
+    "term": "미디어 쿼리(@media)",
+    "def": "화면 너비 같은 특정 조건을 만족할 때만 CSS 규칙을 적용하는 문법. 반응형 디자인의 핵심 도구다.",
+    "chapter": "web-03",
+    "track": "web"
+  },
+  {
+    "term": "breakpoint(중단점)",
+    "def": "레이아웃을 전환하는 기준 화면 너비. 768px(태블릿), 1024px(데스크톱) 등이 관행적으로 쓰인다.",
+    "chapter": "web-03",
+    "track": "web"
+  },
+  {
+    "term": "position:sticky",
+    "def": "평소엔 일반 흐름을 따르다가 스크롤이 지정한 임계점에 닿으면 그 자리에 고정되는 배치 방식.",
+    "chapter": "web-03",
+    "track": "web"
+  },
+  {
+    "term": "변수",
+    "def": "값을 저장해 두고 이름으로 꺼내 쓸 수 있는 공간입니다. let 과 const 로 선언합니다.",
+    "chapter": "web-04",
+    "track": "web"
+  },
+  {
+    "term": "상수(const)",
+    "def": "한 번 값을 정하면 다시 바꿀 수 없는 변수입니다. 재할당이 필요 없을 때 사용합니다.",
+    "chapter": "web-04",
+    "track": "web"
+  },
+  {
+    "term": "자료형",
+    "def": "값의 종류를 뜻하며 string, number, boolean, null, undefined, object 등이 있습니다.",
+    "chapter": "web-04",
+    "track": "web"
+  },
+  {
+    "term": "템플릿 리터럴",
+    "def": "백틱(`)으로 감싸고 ${} 로 변수를 끼워 넣는 문자열 표기법입니다.",
+    "chapter": "web-04",
+    "track": "web"
+  },
+  {
+    "term": "엄격 비교(===)",
+    "def": "값과 자료형이 모두 같은지 검사하는 비교 연산자로, 타입을 변환하는 == 보다 권장됩니다.",
+    "chapter": "web-04",
+    "track": "web"
+  },
+  {
+    "term": "삼항 연산자",
+    "def": "조건 ? 참값 : 거짓값 형태로 조건문을 한 줄로 줄여 쓰는 연산자입니다.",
+    "chapter": "web-04",
+    "track": "web"
+  },
+  {
+    "term": "스코프",
+    "def": "변수가 접근 가능한 유효 범위로, 전역 스코프와 지역 스코프로 나뉩니다.",
+    "chapter": "web-04",
+    "track": "web"
+  },
+  {
+    "term": "호이스팅",
+    "def": "변수·함수 선언이 코드 위로 끌어올려진 것처럼 처리되는 동작입니다. let/const 는 선언 전 접근 시 에러가 납니다.",
+    "chapter": "web-04",
+    "track": "web"
+  },
+  {
+    "term": "DOM",
+    "def": "Document Object Model. 브라우저가 HTML 문서를 읽어 만든 트리 구조의 객체 모델로, JavaScript는 이를 통해 화면을 조작한다.",
+    "chapter": "web-05",
+    "track": "web"
+  },
+  {
+    "term": "고차 함수",
+    "def": "함수를 인자로 받거나 함수를 반환하는 함수. map/filter/reduce처럼 콜백을 받아 동작하는 배열 메서드가 대표적이다.",
+    "chapter": "web-05",
+    "track": "web"
+  },
+  {
+    "term": "불변성",
+    "def": "원본 데이터를 직접 수정하지 않고 새 복사본을 만들어 변경하는 패턴. 스프레드 연산자로 구현하며 React state 관리의 기본 원칙이다.",
+    "chapter": "web-05",
+    "track": "web"
+  },
+  {
+    "term": "이벤트 리스너",
+    "def": "특정 이벤트(클릭, 입력 등)가 발생했을 때 실행할 함수를 요소에 등록하는 것. addEventListener로 연결한다.",
+    "chapter": "web-05",
+    "track": "web"
+  },
+  {
+    "term": "preventDefault",
+    "def": "이벤트의 기본 동작(예: 폼 제출 시 페이지 새로고침)을 막는 메서드. SPA 구현의 핵심이다.",
+    "chapter": "web-05",
+    "track": "web"
+  },
+  {
+    "term": "이벤트 위임",
+    "def": "각 자식마다 리스너를 달지 않고 부모 한 곳에 리스너를 달아 event.target으로 실제 대상을 구분하는 기법.",
+    "chapter": "web-05",
+    "track": "web"
+  },
+  {
+    "term": "Promise",
+    "def": "미래에 완료될 비동기 작업의 결과를 담는 객체. pending → fulfilled/rejected 상태를 가지며 .then/.catch로 처리한다.",
+    "chapter": "web-05",
+    "track": "web"
+  },
+  {
+    "term": "async/await",
+    "def": "Promise를 동기 코드처럼 읽기 쉽게 쓰는 문법. async 함수 안에서 await로 Promise 결과를 기다려 받는다.",
+    "chapter": "web-05",
+    "track": "web"
+  },
   {
     "term": "JSX",
     "def": "JavaScript XML의 약자로, JavaScript 코드 안에서 HTML과 유사한 문법으로 UI를 선언적으로 표현하는 JavaScript 확장 문법이다. 빌드 시 일반 JavaScript로 변환된다.",

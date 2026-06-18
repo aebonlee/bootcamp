@@ -1,11 +1,12 @@
 // OG 이미지 생성기 — sharp로 SVG를 1200x630 PNG로 렌더링
-// 사용: npm run og  →  public/og-image.png 생성
+// 사용: npm run og  →  public/og-image-v2.png 생성
+// 파일명에 버전을 두는 이유: 캐시(CDN/소셜)가 옛 이미지를 계속 보여주는 것을 방지
 import sharp from 'sharp'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const out = resolve(__dirname, '../public/og-image.png')
+const out = resolve(__dirname, '../public/og-image-v2.png')
 
 const W = 1200, H = 630
 
@@ -49,12 +50,12 @@ const svg = `
   <text x="88" y="478" font-family="Pretendard, sans-serif" font-size="118" font-weight="800" letter-spacing="-3" fill="url(#blue)">끝까지, 한 곳에서.</text>
 
   <!-- subtitle -->
-  <text x="92" y="556" font-family="Pretendard, sans-serif" font-size="30" font-weight="500" fill="#AEB6C6">JSX · 상태관리 · 인증 · 배포 + FastAPI · Hugging Face 생성형 AI</text>
+  <text x="92" y="556" font-family="Pretendard, sans-serif" font-size="30" font-weight="500" fill="#AEB6C6">HTML·CSS·JS · React · 인증·배포 + FastAPI · Hugging Face 생성형 AI</text>
 
   <!-- badge -->
   <g transform="translate(92,584)">
     <rect x="0" y="0" width="250" height="40" rx="20" fill="#ffffff" opacity="0.12"/>
-    <text x="125" y="26" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="20" font-weight="700" fill="#ffffff">22개 챕터 · 117개 강의</text>
+    <text x="125" y="26" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="20" font-weight="700" fill="#ffffff">27개 챕터 · 137개 강의</text>
   </g>
 
   <text x="${W - 60}" y="${H - 44}" text-anchor="end" font-family="Pretendard, sans-serif" font-size="22" font-weight="600" fill="#6B7390">bootcamp.dreamitbiz.com</text>

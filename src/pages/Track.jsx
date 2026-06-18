@@ -13,8 +13,8 @@ export default function Track() {
   const chs = byTrack(track)
   const totalSec = chs.reduce((n, c) => n + c.sections.length, 0)
   const isAi = track === 'ai'
-  const orn = track === 'ai' ? 'orn-flower' : track === 'ops' ? 'orn-tunnel' : 'orn-rings'
-  const eyebrowC = track === 'ai' ? '#FFB37A' : track === 'ops' ? '#5CE0A8' : '#8FB4FF'
+  const orn = track === 'ai' ? 'orn-flower' : track === 'ops' ? 'orn-tunnel' : track === 'web' ? 'orn-bowtie' : 'orn-rings'
+  const eyebrowC = track === 'ai' ? '#FFB37A' : track === 'ops' ? '#5CE0A8' : track === 'web' ? '#C4B5FD' : '#8FB4FF'
 
   return (
     <main style={{ background: C.ink, color: '#fff', minHeight: '100vh' }}>

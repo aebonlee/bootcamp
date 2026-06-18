@@ -8,6 +8,7 @@ import { useAuth } from '../hooks/useAuth'
 const NAV = [
   { to: '/about', label: 'ABOUT', ko: '소개' },
   { to: '/curriculum', label: 'CURRICULUM', ko: '커리큘럼' },
+  { to: '/track/web', label: 'WEB', ko: '웹 기초' },
   { to: '/track/react', label: 'REACT', ko: '프론트엔드' },
   { to: '/track/ai', label: 'AI', ko: 'AI 서비스' },
   { to: '/track/ops', label: 'DEPLOY', ko: '배포·협업' },

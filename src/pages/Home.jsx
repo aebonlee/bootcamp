@@ -10,7 +10,7 @@ const STACK = ['React 19', 'Vite', 'Supabase', 'FastAPI', 'Hugging Face', 'Docke
 
 const FEATURES = [
   { t: '실무 중심 커리큘럼', d: `JSX 기초부터 인증·배포까지, 현업 프로젝트 흐름 그대로 설계된 ${TOTAL_CHAPTERS}개 챕터.`, orn: 'orn-bowtie.svg' },
-  { t: '프론트 · AI · 배포 세 트랙', d: 'React 프론트엔드, 생성형 AI 웹 서비스, 그리고 Git·AWS·Docker 실전 배포까지 한 곳에서.', orn: 'orn-tunnel.svg' },
+  { t: '웹기초부터 배포까지 네 트랙', d: 'HTML·CSS·JS 웹 기초, React 프론트엔드, 생성형 AI 웹 서비스, Git·AWS·Docker 실전 배포까지.', orn: 'orn-tunnel.svg' },
   { t: `${TOTAL_LESSONS}개 강의 · 진도 관리`, d: '섹션 단위로 학습을 체크하고 트랙별 달성률을 한눈에 추적합니다.', orn: 'orn-rings.svg' },
   { t: '바로 쓰는 예제 코드', d: '감정분석 API, 이미지 생성, 멀티모달 챗봇 등 그대로 응용 가능한 실습 자료.', orn: 'orn-flower.svg' },
 ]
@@ -24,7 +24,7 @@ const PROCESS = [
 
 const FAQS = [
   { q: '완전 입문자도 들을 수 있나요?', a: 'React 트랙은 JSX와 개발환경 구성부터 시작합니다. HTML/CSS와 기본 JavaScript만 알면 무리 없이 따라올 수 있도록 단계적으로 구성했습니다.' },
-  { q: '어떤 트랙부터 들어야 하나요?', a: '웹 개발이 처음이라면 React(프론트엔드) 트랙을 먼저 권장합니다. AI 트랙은 Python·FastAPI로 모델을 웹 API로 노출하는 백엔드/AI 관점을, 배포·협업 트랙은 Git·GitHub과 AWS·Docker 실전 배포를 다룹니다. 세 트랙은 독립적으로 수강할 수 있습니다.' },
+  { q: '어떤 트랙부터 들어야 하나요?', a: '웹 개발이 처음이라면 웹 기초(HTML·CSS·JavaScript) 트랙부터 시작해 React 프론트엔드로 넘어가는 흐름을 권장합니다. AI 트랙은 Python·FastAPI로 모델을 웹 API로 노출하는 관점을, 배포·협업 트랙은 Git·GitHub과 AWS·Docker 실전 배포를 다룹니다. 네 트랙은 독립적으로 수강할 수 있습니다.' },
   { q: '학습 진도는 저장되나요?', a: '구글 또는 카카오로 로그인하면 섹션 단위 학습 체크가 계정에 저장되어, 트랙별 달성률을 언제든 이어볼 수 있습니다.' },
   { q: '배운 내용을 어떻게 점검하나요?', a: '강의마다 핵심 용어 정리와 객관식 퀴즈로 이해도를 직접 검증하고, 입문·중급·고급 프로젝트 예제로 실전에 적용해볼 수 있습니다.' },
   { q: '강의 자료와 코드는 어디서 보나요?', a: '모든 강의 본문·예제 코드·실습이 웹페이지로 제공되어, 별도 파일 없이 강의 상세 페이지에서 바로 학습하고 코드를 복사해 사용할 수 있습니다.' },
@@ -32,7 +32,7 @@ const FAQS = [
 
 export default function Home() {
   const { doneCount } = useProgress() || {}
-  const preview = [...byTrack('react').slice(0, 2), ...byTrack('ai').slice(0, 2), ...byTrack('ops').slice(0, 2)]
+  const preview = [...byTrack('web').slice(0, 2), ...byTrack('react').slice(0, 2), ...byTrack('ai').slice(0, 1), ...byTrack('ops').slice(0, 1)]
 
   return (
     <main>
@@ -42,7 +42,7 @@ export default function Home() {
         <div style={{ position: 'absolute', top: '-10%', left: '30%', width: '60%', height: '80%', background: 'radial-gradient(circle,rgba(75,134,255,0.1),transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', maxWidth: 1480, margin: '0 auto', padding: 'clamp(56px,9vw,124px) clamp(20px,5vw,56px) clamp(48px,7vw,96px)' }}>
           <p style={{ margin: 0, fontSize: 'clamp(14px,1.8vw,18px)', fontWeight: 600, color: '#3A3F49', animation: 'heroIn .7s both' }}>
-React · AI · 실전 배포 부트캠프 · <span style={{ color: C.orange, fontWeight: 800 }}>{TOTAL_CHAPTERS}챕터 {TOTAL_LESSONS}강의</span> 풀코스
+웹기초 · React · AI · 배포 부트캠프 · <span style={{ color: C.orange, fontWeight: 800 }}>{TOTAL_CHAPTERS}챕터 {TOTAL_LESSONS}강의</span> 풀코스
           </p>
           <h1 style={{ margin: 'clamp(18px,3vw,32px) 0 0', fontWeight: 800, fontSize: 'clamp(46px,12vw,176px)', lineHeight: 0.9, letterSpacing: '-0.045em', color: C.ink, textTransform: 'uppercase' }}>
             <span style={{ display: 'block', fontWeight: 300 }}>DreamIT</span>
@@ -83,10 +83,10 @@ React · AI · 실전 배포 부트캠프 · <span style={{ color: C.orange, fon
           <Reveal style={{ textAlign: 'center', marginBottom: 'clamp(40px,5vw,60px)' }}>
             <Eyebrow>LEARNING TRACKS</Eyebrow>
             <h2 style={{ margin: '14px 0 0', fontSize: 'clamp(30px,5.5vw,68px)', lineHeight: 1, letterSpacing: '-0.035em', textTransform: 'uppercase', fontWeight: 300 }}>
-              세 개의 <span style={{ fontWeight: 800 }}>전문 트랙</span>
+              네 개의 <span style={{ fontWeight: 800 }}>전문 트랙</span>
             </h2>
             <p style={{ margin: '22px auto 0', maxWidth: 620, fontSize: 'clamp(15px,2vw,18px)', lineHeight: 1.7, color: '#9CA2AD' }}>
-              프론트엔드 · AI · 실전 배포, 각자의 목표에 맞춰 선택하세요. 모든 트랙이 <b style={{ color: '#fff' }}>개념 → 실습 → 프로젝트</b> 흐름으로 완성됩니다.
+              웹 기초 · React · AI · 배포, 각자의 목표에 맞춰 선택하세요. 모든 트랙이 <b style={{ color: '#fff' }}>개념 → 실습 → 프로젝트</b> 흐름으로 완성됩니다.
             </p>
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 'clamp(16px,2vw,24px)' }}>

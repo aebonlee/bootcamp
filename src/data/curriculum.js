@@ -2,6 +2,295 @@
 // 편집 시 docs 원본과 동기화 권장
 export const CHAPTERS = [
   {
+    "id": "web-01",
+    "track": "web",
+    "no": 1,
+    "title": "HTML 문서 구조와 핵심 태그",
+    "summary": "HTML 문서의 기본 골격(DOCTYPE·head·body)부터 텍스트·시맨틱 태그, 링크·이미지·리스트·테이블, 그리고 폼과 입력 요소까지 웹 페이지의 구조를 이루는 핵심 태그를 다룹니다. 코드 예제마다 상세한 한국어 주석을 달아 초심자가 직접 따라 작성할 수 있도록 구성했습니다.",
+    "duration": "약 2.5시간",
+    "level": "입문",
+    "tags": [
+      "HTML",
+      "시맨틱 태그",
+      "폼",
+      "DOCTYPE"
+    ],
+    "sections": [
+      {
+        "no": "1.1",
+        "title": "HTML이란? 문서의 기본 구조",
+        "summary": "HTML이 웹에서 구조를 담당한다는 개념과 태그·요소·속성의 의미, 그리고 DOCTYPE·html·head·body로 이루어진 표준 문서 골격을 익힙니다.",
+        "points": [
+          "HTML은 구조와 의미를, CSS는 스타일을, JS는 동작을 담당한다",
+          "태그가 내용을 감싸 요소가 되고, 속성으로 추가 정보를 준다",
+          "DOCTYPE·charset(UTF-8)·viewport·title은 모든 문서의 필수 요소다"
+        ]
+      },
+      {
+        "no": "1.2",
+        "title": "텍스트 태그와 시맨틱 마크업",
+        "summary": "제목(h1~h6)·문단(p)·강조(strong/em) 등 텍스트 태그와, header·nav·main·article 같은 시맨틱 태그로 의미 있는 구조를 만드는 법을 배웁니다.",
+        "points": [
+          "글자 크기가 아니라 의미에 맞게 제목·강조 태그를 사용한다",
+          "strong/em은 의미 있는 강조, b/i는 단순 시각 효과다",
+          "시맨틱 태그는 접근성·SEO·유지보수에 모두 유리하다"
+        ]
+      },
+      {
+        "no": "1.3",
+        "title": "링크 · 이미지 · 리스트 · 테이블",
+        "summary": "a 태그로 링크를, img와 alt로 이미지를, ul/ol/dl로 목록을, table로 표를 만드는 핵심 콘텐츠 태그들을 다룹니다.",
+        "points": [
+          "a의 href로 외부·내부·앵커·메일 링크를 만든다",
+          "img에는 접근성을 위해 alt를 반드시 작성한다",
+          "테이블은 데이터 표현용이며 레이아웃 용도로 쓰지 않는다"
+        ]
+      },
+      {
+        "no": "1.4",
+        "title": "폼(form)과 입력 요소",
+        "summary": "form·label·input의 관계와 다양한 input type, checkbox·radio·select·textarea, GET/POST 차이까지 사용자 입력을 받는 폼의 핵심을 익힙니다.",
+        "points": [
+          "label의 for와 input의 id를 연결하면 접근성·사용성이 좋아진다",
+          "input은 type에 따라 검증과 모바일 키보드가 달라진다",
+          "민감 정보는 GET이 아닌 POST 방식으로 전송한다"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "web-02",
+    "track": "web",
+    "no": 2,
+    "title": "CSS 스타일링 기초",
+    "summary": "CSS로 HTML 문서에 색상·크기·여백·배치 등 시각적 표현을 입히는 기초를 다룹니다. CSS 적용 방법과 선택자, 박스 모델, 색상·배경·타이포그래피, 단위와 CSS 변수까지 스타일링의 핵심 개념을 예제와 함께 익힙니다.",
+    "duration": "약 2.5시간",
+    "level": "입문",
+    "tags": [
+      "CSS",
+      "선택자",
+      "박스모델",
+      "rem",
+      "CSS 변수"
+    ],
+    "sections": [
+      {
+        "no": "2.1",
+        "title": "CSS 적용 방법과 선택자",
+        "summary": "인라인·내부·외부 방식으로 CSS를 연결하는 방법과 다양한 선택자, 그리고 우선순위(명시도) 개념을 배웁니다.",
+        "points": [
+          "CSS 적용 3가지: 인라인(style 속성), 내부(style 태그), 외부(link로 .css 연결, 권장)",
+          "선택자 종류: 전체(*), 태그, 클래스(.), 아이디(#), 자손/자식, 가상 클래스(:hover)",
+          "명시도 순서: 인라인 > 아이디 > 클래스 > 태그, 같으면 나중 규칙이 적용"
+        ]
+      },
+      {
+        "no": "2.2",
+        "title": "박스 모델",
+        "summary": "모든 요소를 구성하는 content·padding·border·margin 4개 영역과 box-sizing, display 속성을 이해합니다.",
+        "points": [
+          "박스 모델 4영역: content → padding → border → margin",
+          "box-sizing: border-box를 쓰면 width 안에 padding·border가 포함되어 크기 계산이 쉬움",
+          "display: block / inline / inline-block / none으로 박스의 성격을 바꾼다"
+        ]
+      },
+      {
+        "no": "2.3",
+        "title": "색상 · 배경 · 타이포그래피",
+        "summary": "HEX·RGB·HSL 색상 표현, background 속성, font 관련 속성으로 글꼴과 텍스트를 다루는 법을 익힙니다.",
+        "points": [
+          "색상 표현: 이름, HEX(#3498db), RGB/RGBA, HSL 등 상황에 맞게 선택",
+          "background로 색·이미지·반복·크기·위치를 지정하고 단축 속성으로 한 줄 작성 가능",
+          "타이포그래피: font-family, font-size, font-weight, line-height, text-align 등으로 글자 제어"
+        ]
+      },
+      {
+        "no": "2.4",
+        "title": "단위와 CSS 변수",
+        "summary": "px·%·em·rem 단위의 차이와 기준을 비교하고, :root와 var()를 이용한 CSS 변수 활용법을 배웁니다.",
+        "points": [
+          "단위 기준: px(고정), %(부모), em(현재 요소 font-size), rem(루트 font-size)",
+          "rem은 루트 기준이라 일관적이며 글자·여백에 권장, em은 중첩 시 누적 주의",
+          "CSS 변수: :root에 --이름으로 선언하고 var(--이름, 기본값)으로 재사용하면 유지보수가 쉬움"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "web-03",
+    "track": "web",
+    "no": 3,
+    "title": "CSS 레이아웃 (Flexbox·Grid·반응형)",
+    "summary": "display와 position으로 요소 배치의 기초를 익히고, 1차원 정렬에 강한 Flexbox와 2차원 격자 배치에 강한 Grid를 배웁니다. 미디어 쿼리와 유연한 단위로 모바일부터 데스크톱까지 대응하는 반응형 레이아웃을 직접 만들어 봅니다.",
+    "duration": "약 3시간",
+    "level": "초급",
+    "tags": [
+      "Flexbox",
+      "Grid",
+      "반응형",
+      "미디어 쿼리",
+      "position"
+    ],
+    "sections": [
+      {
+        "no": "3.1",
+        "title": "display와 position",
+        "summary": "요소의 박스 종류를 정하는 display(block·inline·flex·grid 등)와, 배치 기준을 정하는 position(static·relative·absolute·fixed·sticky)의 차이와 사용법을 익힙니다.",
+        "points": [
+          "block은 한 줄을 차지하고 inline은 글자처럼 흐르며, inline-block은 두 성격을 모두 가진다",
+          "position의 relative·absolute·fixed·sticky는 top/right/bottom/left의 기준점이 서로 다르다",
+          "absolute는 가장 가까운 positioned 조상을 기준으로 하며, z-index는 static이 아닐 때 쌓임 순서에 작용한다"
+        ]
+      },
+      {
+        "no": "3.2",
+        "title": "Flexbox 레이아웃",
+        "summary": "display:flex로 만드는 1차원 레이아웃 모델을 배웁니다. 주축·교차축 개념과 justify-content·align-items, flex-grow/shrink/basis 단축 속성으로 정렬과 분배를 제어합니다.",
+        "points": [
+          "justify-content는 주축, align-items는 교차축 정렬을 담당한다",
+          "justify-content:center + align-items:center로 가로·세로 완벽 가운데 정렬을 만든다",
+          "flex 단축 속성(grow shrink basis)과 flex-wrap·gap으로 유연하게 늘어나고 줄바꿈되는 배치를 만든다"
+        ]
+      },
+      {
+        "no": "3.3",
+        "title": "Grid 레이아웃",
+        "summary": "display:grid로 행과 열을 동시에 다루는 2차원 레이아웃을 배웁니다. grid-template-columns, fr 단위, repeat/minmax/auto-fit, grid-template-areas로 페이지 골격을 설계합니다.",
+        "points": [
+          "fr 단위와 repeat(), minmax()로 열 크기와 개수를 유연하게 정의한다",
+          "grid-template-areas로 영역에 이름을 붙이면 코드만 봐도 레이아웃 구조가 보인다",
+          "repeat(auto-fit, minmax(...)) 패턴으로 미디어 쿼리 없이도 반응형 그리드를 만든다"
+        ]
+      },
+      {
+        "no": "3.4",
+        "title": "반응형 디자인과 미디어 쿼리",
+        "summary": "@media 미디어 쿼리와 유연한 단위(%·fr·rem·vw·clamp)로 다양한 화면 크기에 대응합니다. viewport 메타 태그와 모바일 퍼스트 전략, 주요 breakpoint를 다룹니다.",
+        "points": [
+          "viewport 메타 태그가 있어야 모바일에서 미디어 쿼리가 정상 동작한다",
+          "모바일 기본 스타일을 먼저 작성하고 min-width로 확장하는 모바일 퍼스트가 실무 표준이다",
+          "clamp()와 auto-fit+minmax를 쓰면 미디어 쿼리 없이도 유연한 반응형을 구현할 수 있다"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "web-04",
+    "track": "web",
+    "no": 4,
+    "title": "JavaScript 기초 문법",
+    "summary": "웹 페이지에 동작을 더하는 JavaScript의 기본 문법을 익힙니다. 변수와 자료형, 연산자와 조건문, 반복문과 배열, 함수와 스코프까지 핵심 개념을 예제와 함께 단계별로 학습합니다.",
+    "duration": "약 3시간",
+    "level": "초급",
+    "tags": [
+      "JavaScript",
+      "변수",
+      "함수",
+      "조건문",
+      "반복문"
+    ],
+    "sections": [
+      {
+        "no": "4.1",
+        "title": "변수와 자료형",
+        "summary": "let·const로 변수를 선언하는 방법과 string·number·boolean 등 기본 자료형, 템플릿 리터럴을 학습합니다.",
+        "points": [
+          "값을 바꾸지 않으면 const, 재할당이 필요하면 let 을 사용하고 var 는 지양한다",
+          "string, number, boolean, undefined, null, object 등 자료형을 typeof 로 확인한다",
+          "백틱과 ${} 를 쓰는 템플릿 리터럴로 변수를 문자열에 깔끔하게 삽입한다"
+        ]
+      },
+      {
+        "no": "4.2",
+        "title": "연산자와 조건문",
+        "summary": "산술·비교·논리 연산자와 if/else if/else, switch, 삼항 연산자로 상황에 따라 다른 코드를 실행하는 방법을 익힙니다.",
+        "points": [
+          "비교는 타입까지 엄격히 검사하는 === 와 !== 를 권장한다",
+          "&&(AND), ||(OR), !(NOT) 논리 연산자로 여러 조건을 조합한다",
+          "if/else if/else, switch, 삼항 연산자로 분기 처리를 한다"
+        ]
+      },
+      {
+        "no": "4.3",
+        "title": "반복문과 배열 기초",
+        "summary": "for·while 반복문과 배열의 인덱스 접근, push, length, for...of, forEach, map, filter 등 배열 다루기를 학습합니다.",
+        "points": [
+          "횟수가 정해지면 for, 조건 동안 반복하면 while 을 사용한다",
+          "배열은 0부터 시작하는 인덱스로 접근하고 length 로 개수를 센다",
+          "for...of, forEach 로 순회하고 map, filter 로 새 배열을 만든다"
+        ]
+      },
+      {
+        "no": "4.4",
+        "title": "함수와 스코프",
+        "summary": "함수 선언과 화살표 함수, 매개변수 기본값, 전역·지역 스코프, 호이스팅의 개념을 이해합니다.",
+        "points": [
+          "function 키워드와 화살표 함수(=>)로 재사용 가능한 코드를 만든다",
+          "변수가 유효한 범위인 스코프와 블록 스코프(let/const)를 이해한다",
+          "함수 선언은 호이스팅되지만 let/const 는 선언 전 접근 시 에러가 난다"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "web-05",
+    "track": "web",
+    "no": 5,
+    "title": "JavaScript와 브라우저 (DOM·이벤트·비동기)",
+    "summary": "객체와 배열 메서드로 데이터를 다루고, DOM으로 화면을 조작하며, 이벤트로 사용자와 상호작용하고, fetch와 async/await로 서버 데이터를 받아 화면에 그리는 방법을 익힙니다. 이 장의 패턴들은 그대로 React로 이어지는 핵심 토대입니다.",
+    "duration": "약 3시간",
+    "level": "초급",
+    "tags": [
+      "DOM",
+      "이벤트",
+      "fetch",
+      "async/await",
+      "배열 메서드"
+    ],
+    "sections": [
+      {
+        "no": "5.1",
+        "title": "객체와 배열 메서드",
+        "summary": "객체의 속성 접근·구조 분해·스프레드(불변성)와 배열 고차 함수(map/filter/reduce/forEach)로 객체 배열을 선언적으로 다루는 법.",
+        "points": [
+          "객체는 key:value 묶음, 점/대괄호 표기법과 구조 분해로 접근한다",
+          "스프레드({...obj})로 원본을 바꾸지 않는 불변성 패턴을 쓴다",
+          "map은 변환, filter는 추림, reduce는 누적, forEach는 반복만 수행하며 체이닝할 수 있다"
+        ]
+      },
+      {
+        "no": "5.2",
+        "title": "DOM 선택과 조작",
+        "summary": "DOM 트리에서 querySelector 등으로 요소를 선택하고 textContent·classList·style·createElement로 내용과 화면을 조작하는 법.",
+        "points": [
+          "querySelector/querySelectorAll로 CSS 선택자를 사용해 요소를 선택한다",
+          "textContent·setAttribute·classList·style로 내용·속성·스타일을 바꾼다",
+          "createElement와 appendChild로 요소를 만들고 배열 데이터를 DOM으로 렌더링한다"
+        ]
+      },
+      {
+        "no": "5.3",
+        "title": "이벤트 처리",
+        "summary": "addEventListener로 click·input·submit 등 이벤트를 처리하고 event 객체, preventDefault, 이벤트 위임을 활용하는 법.",
+        "points": [
+          "addEventListener(이벤트, 핸들러)로 사용자 상호작용을 처리한다",
+          "event.target.value로 입력값을 읽고 preventDefault로 기본 동작을 막는다",
+          "부모에 리스너를 한 번 달아 자식을 처리하는 이벤트 위임으로 효율을 높인다"
+        ]
+      },
+      {
+        "no": "5.4",
+        "title": "비동기와 fetch 기초",
+        "summary": "동기/비동기의 차이, Promise, async/await, fetch로 서버 데이터를 받아 배열 메서드와 DOM 조작으로 화면에 그리는 전체 흐름.",
+        "points": [
+          "비동기는 오래 걸리는 작업을 기다리지 않고 다음 코드를 실행한다",
+          "fetch는 Promise를 반환하며 .then 또는 async/await로 결과를 받는다",
+          "fetch+await로 데이터를 받아 map으로 변환해 DOM에 렌더링하는 것이 React 데이터 흐름의 토대다"
+        ]
+      }
+    ]
+  },
+  {
     "id": "react-01",
     "track": "react",
     "no": 1,
@@ -1663,6 +1952,7 @@ export const CHAPTERS = [
 ];
 
 export const TRACKS = {
+  web: { id:"web", label:"웹 기초", en:"Web Basics", color:"#7C3AED", desc:"HTML·CSS·JavaScript로 웹의 기본기를 다지고 React로 넘어갈 준비를 합니다" },
   react: { id:"react", label:"React 프론트엔드", en:"Frontend", color:"#1A45D8", desc:"JSX부터 상태관리·인증·배포까지, 실무형 React 19 풀코스" },
   ai: { id:"ai", label:"AI 웹 서비스", en:"AI Web Service", color:"#F15A0C", desc:"FastAPI와 Hugging Face로 생성형 AI를 웹 서비스로 구현" }
 ,
