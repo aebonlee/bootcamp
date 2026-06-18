@@ -1,10 +1,12 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { C, grad, trackColor } from '../theme'
 import { CHAPTERS, TRACKS, getChapter } from '../data/curriculum'
 import { QUIZZES, GLOSSARY, quizOf, TOTAL_QUIZ, TOTAL_TERMS } from '../data/review'
 import { Eyebrow } from '../components/ui'
 import Reveal from '../components/Reveal'
+import { useAuth } from '../hooks/useAuth'
+import { fetchQuizResults, saveQuizResult } from '../lib/db'
 
 // 트랙별 짧은 배지 라벨
 const TRACK_BADGE = { web: 'Web', react: 'React', ai: 'AI', ops: 'Deploy' }
@@ -114,12 +116,26 @@ function buildQuestions(scope) {
 }
 
 function bestKey(scope) { return `webpro_quizbest_${scope}` }
+const lsGet = (scope) => { try { return Number(localStorage.getItem(bestKey(scope)) || 0) } catch { return 0 } }
+const lsSet = (scope, pct) => { try { localStorage.setItem(bestKey(scope), String(pct)) } catch { /* noop */ } }
 
 function QuizRunner() {
+  const { user } = useAuth()
   const [scope, setScope] = useState('')
   const [questions, setQuestions] = useState([])
   const [answers, setAnswers] = useState({})
   const [submitted, setSubmitted] = useState(false)
+  const [bests, setBests] = useState({}) // scope -> 최고 %
+
+  // 로그인 시 서버에서 최고 점수 로드(실패하면 로컬 폴백 유지)
+  useEffect(() => {
+    let on = true
+    if (!user) return
+    fetchQuizResults(user.id).then((map) => { if (on) setBests((prev) => ({ ...prev, ...map })) })
+    return () => { on = false }
+  }, [user])
+
+  const bestOf = (sc) => Math.max(bests[sc] || 0, lsGet(sc))
 
   const start = (sc) => {
     setScope(sc)
@@ -133,11 +149,12 @@ function QuizRunner() {
 
   const submit = () => {
     setSubmitted(true)
-    try {
-      const prev = Number(localStorage.getItem(bestKey(scope)) || 0)
-      const pct = Math.round((score / questions.length) * 100)
-      if (pct > prev) localStorage.setItem(bestKey(scope), String(pct))
-    } catch { /* noop */ }
+    const pct = Math.round((score / questions.length) * 100)
+    const prev = bestOf(scope)
+    const best = Math.max(pct, prev)
+    setBests((m) => ({ ...m, [scope]: best }))
+    lsSet(scope, best) // 항상 로컬 캐시
+    if (user) saveQuizResult(user.id, scope, pct, prev) // 로그인 시 서버 저장
   }
 
   // 시작 화면(스코프 선택)
@@ -166,8 +183,7 @@ function QuizRunner() {
               {CHAPTERS.filter((c) => c.track === tid).map((c) => {
                 const tc = trackColor(tid)
                 const n = quizOf(c.id).length
-                let best = 0
-                try { best = Number(localStorage.getItem(bestKey(c.id)) || 0) } catch { /* noop */ }
+                const best = bestOf(c.id)
                 return (
                   <button key={c.id} onClick={() => start(c.id)} className="card-link" style={{ textAlign: 'left', background: '#fff', border: `1px solid ${C.line}`, borderRadius: 16, padding: '18px 20px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

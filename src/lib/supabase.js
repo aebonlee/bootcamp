@@ -22,4 +22,5 @@ export const T = {
   profiles: `${PREFIX}profiles`,
   progress: `${PREFIX}progress`,
   enrollments: `${PREFIX}enrollments`,
+  quizResults: `${PREFIX}quiz_results`,
 }

@@ -89,9 +89,33 @@ export default function Header() {
         <div style={{ position: 'fixed', inset: 0, zIndex: 70, background: '#0A0B0D', color: '#fff', animation: 'revealFade .25s both', padding: '96px clamp(20px,6vw,40px) 40px', display: 'flex', flexDirection: 'column' }}>
           <button onClick={() => setMenuOpen(false)} aria-label="닫기"
             style={{ position: 'absolute', top: 26, right: 24, width: 46, height: 46, borderRadius: 14, border: '1px solid rgba(255,255,255,0.2)', color: '#fff', fontSize: 22 }}>✕</button>
-          {NAV.map((n) => (
+
+          {/* 주요 메뉴(앞): 소개·커리큘럼 */}
+          {NAV.filter((n) => !n.to.startsWith('/track/')).slice(0, 2).map((n) => (
             <button key={n.to} onClick={() => nav(n.to)}
-              style={{ textAlign: 'left', padding: '18px 0', borderBottom: '1px solid rgba(255,255,255,0.12)', fontSize: 30, fontWeight: 300, letterSpacing: '0.02em', color: '#fff' }}>
+              style={{ textAlign: 'left', padding: '16px 0', borderBottom: '1px solid rgba(255,255,255,0.12)', fontSize: 28, fontWeight: 300, letterSpacing: '0.02em', color: '#fff' }}>
+              {n.label} <span style={{ fontSize: 15, color: '#777', marginLeft: 8 }}>{n.ko}</span>
+            </button>
+          ))}
+
+          {/* 학습 트랙 그룹 */}
+          <div style={{ padding: '18px 0 8px', borderBottom: '1px solid rgba(255,255,255,0.12)' }}>
+            <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.14em', color: '#FF6A1A', marginBottom: 12 }}>학습 트랙</div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+              {NAV.filter((n) => n.to.startsWith('/track/')).map((n) => (
+                <button key={n.to} onClick={() => nav(n.to)}
+                  style={{ textAlign: 'left', padding: '12px 14px', borderRadius: 12, border: '1px solid rgba(255,255,255,0.14)', background: 'rgba(255,255,255,0.05)', color: '#fff' }}>
+                  <div style={{ fontSize: 16, fontWeight: 600 }}>{n.label}</div>
+                  <div style={{ fontSize: 13, color: '#9CA2AD', marginTop: 2 }}>{n.ko}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* 주요 메뉴(뒤): 자료·프로젝트·퀴즈 */}
+          {NAV.filter((n) => !n.to.startsWith('/track/')).slice(2).map((n) => (
+            <button key={n.to} onClick={() => nav(n.to)}
+              style={{ textAlign: 'left', padding: '16px 0', borderBottom: '1px solid rgba(255,255,255,0.12)', fontSize: 28, fontWeight: 300, letterSpacing: '0.02em', color: '#fff' }}>
               {n.label} <span style={{ fontSize: 15, color: '#777', marginLeft: 8 }}>{n.ko}</span>
             </button>
           ))}

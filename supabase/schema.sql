@@ -73,3 +73,30 @@ alter table public.webpro_enrollments enable row level security;
 drop policy if exists "webpro_enrollments_all_own" on public.webpro_enrollments;
 create policy "webpro_enrollments_all_own" on public.webpro_enrollments
   for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+
+-- ===== 퀴즈 결과(최고 점수) =====
+create table if not exists public.webpro_quiz_results (
+  user_id     uuid not null references auth.users(id) on delete cascade,
+  scope       text not null,           -- 챕터 id(react-01 등) 또는 'random'
+  best_pct    int  not null default 0, -- 0~100 최고 점수
+  attempts    int  not null default 1, -- 시도 횟수
+  updated_at  timestamptz not null default now(),
+  primary key (user_id, scope)
+);
+
+create index if not exists webpro_quiz_results_user_idx
+  on public.webpro_quiz_results (user_id);
+
+alter table public.webpro_quiz_results enable row level security;
+
+drop policy if exists "webpro_quiz_select_own" on public.webpro_quiz_results;
+create policy "webpro_quiz_select_own" on public.webpro_quiz_results
+  for select using (auth.uid() = user_id);
+
+drop policy if exists "webpro_quiz_insert_own" on public.webpro_quiz_results;
+create policy "webpro_quiz_insert_own" on public.webpro_quiz_results
+  for insert with check (auth.uid() = user_id);
+
+drop policy if exists "webpro_quiz_update_own" on public.webpro_quiz_results;
+create policy "webpro_quiz_update_own" on public.webpro_quiz_results
+  for update using (auth.uid() = user_id);
