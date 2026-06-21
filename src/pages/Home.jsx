@@ -4,7 +4,6 @@ import { C, grad, trackHero, trackGrad } from '../theme'
 import { CHAPTERS, TRACKS, byTrack, TOTAL_CHAPTERS, TOTAL_LESSONS } from '../data/curriculum'
 import { Eyebrow, ChapterCard } from '../components/ui'
 import Reveal from '../components/Reveal'
-import HeroCanvas from '../components/HeroCanvas'
 import { useProgress } from '../hooks/useProgress'
 import { usePageMeta } from '../hooks/usePageMeta'
 
@@ -49,7 +48,6 @@ export default function Home() {
       <section style={{ position: 'relative', overflow: 'hidden', background: '#fff' }}>
         <img src="/assets/silk.svg" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', top: '-10%', left: '30%', width: '60%', height: '80%', background: 'radial-gradient(circle,rgba(75,134,255,0.1),transparent 70%)', pointerEvents: 'none' }} />
-        <HeroCanvas />
         <div style={{ position: 'relative', maxWidth: 1480, margin: '0 auto', padding: 'clamp(56px,9vw,124px) clamp(20px,5vw,56px) clamp(48px,7vw,96px)' }}>
           <p style={{ margin: 0, fontSize: 'clamp(14px,1.8vw,18px)', fontWeight: 600, color: '#3A3F49', animation: 'heroIn .7s both' }}>
 웹기초 · React · AI · 배포 부트캠프 · <span style={{ color: C.orange, fontWeight: 800 }}>{TOTAL_CHAPTERS}챕터 {TOTAL_LESSONS}강의</span> 풀코스
