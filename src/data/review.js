@@ -1,4 +1,4 @@
-// 자동 생성: 챕터 본문에서 추출한 핵심 용어 + 퀴즈 (web·react·ai·ops 27개 챕터)
+// 자동 생성: 챕터 본문에서 추출한 핵심 용어 + 퀴즈 (web·react·ai·ops 28개 챕터)
 export const QUIZZES = {
   "web-01": [
     {

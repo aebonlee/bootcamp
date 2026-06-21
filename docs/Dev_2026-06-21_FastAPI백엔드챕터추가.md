@@ -40,3 +40,17 @@
 - `src/content/coach-fastapi.md`: 폴더 분리 / Create·Response 스키마 분리(보안) / Depends(get_db) 세션 / Repository 패턴 / 상태 코드 / CORS / TestClient / Dockerfile + 자주 겪는 함정 · 백엔드 선택 가이드(Supabase vs FastAPI) · 점검 체크리스트 · 실습 과제. 본문에서 강의 9장(/lesson/ai-09)으로 연결.
 - `src/data/coaching.js`: GUIDES에 coach-fastapi 추가(coach-supabase 직후) → APPENDIX 9→10종, Coaching 페이지 카운트 자동 반영.
 - 검증: data.test + render.test 29/29 통과, build 성공(coach-fastapi 청크 생성).
+
+## 7. 전체 점검 & 메뉴 정합화 (사이트 감사)
+- **전체 라우트 라이브 감사**(홈·소개·커리큘럼·트랙4·강의·자료·프로젝트·퀴즈·코칭·가이드): HTTP 200·콘솔에러 0·h1 정상. /login·/me의 404는 프리렌더 제외 인증페이지의 의도된 SPA fallback. 콘텐츠 무결성(본문42=챕터28+가이드14, 고아·깨진링크·앵커누락 0).
+- **메뉴 추가 방식 확인**: 상단 네비(Header.jsx NAV)는 미수정. ai-09는 기존 'AI' 트랙 메뉴(/track/ai)+커리큘럼·자료에, coach-fastapi는 기존 '코칭' 메뉴(/coaching) 부록탭에 **데이터 기반으로 자동 편입**.
+- **메뉴명 정확화**: 네비 라벨 '코칭' → **'코칭·가이드'**(페이지 제목 '코칭 & 가이드'와 일치, 가이드 포함 사실 반영).
+- **stale 카운트 일괄 수정 → 동적 계산으로 self-heal**: ai-09/coach-fastapi 추가로 옛 숫자가 곳곳에 잔존했던 것을 발견·수정.
+  - 동적화: `prerender.mjs`(DEFAULT_DESC·커리큘럼·프로젝트·퀴즈·코칭 desc → TOTAL_*/length 참조), `gen-og.mjs`(OG이미지 챕터·강의 수), `Quiz.jsx`(용어·퀴즈 수)
+  - 정적 갱신: `index.html` 3곳(28챕터·146강의), `README.md`(용어223·퀴즈140), `review.js` 주석(28챕터)
+  - 실제 값: 챕터28·강의146·용어223·퀴즈140·코칭4·부록10·Tips17·프로젝트18
+- 검증: 잔존 stale 0, build 성공, `npm run og`·`prerender`(70라우트) 동적 값으로 정상 생성, 테스트 29/29.
+
+## 참고: FastAPI 교안 PDF의 반영 위치
+- 원본 `docs/FastAPI_교안_V9_완성본.pdf`는 **docs/에 그대로 보관**(이동·재추가 없음). Vite 빌드는 public/+src만 번들 → **dist 미포함, 사이트 비배포** 레퍼런스 자료.
+- PDF '내용'이 반영된 산출물: 강의 `src/content/ai-09.md`(+curriculum/labs/review 메타), 코칭 가이드 `src/content/coach-fastapi.md`(+coaching.js).

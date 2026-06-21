@@ -4,6 +4,7 @@
 import sharp from 'sharp'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
+import { TOTAL_CHAPTERS, TOTAL_LESSONS } from '../src/data/curriculum.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const out = resolve(__dirname, '../public/og-image-v2.png')
@@ -55,7 +56,7 @@ const svg = `
   <!-- badge -->
   <g transform="translate(92,584)">
     <rect x="0" y="0" width="250" height="40" rx="20" fill="#ffffff" opacity="0.12"/>
-    <text x="125" y="26" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="20" font-weight="700" fill="#ffffff">27개 챕터 · 137개 강의</text>
+    <text x="125" y="26" text-anchor="middle" font-family="Pretendard, sans-serif" font-size="20" font-weight="700" fill="#ffffff">${TOTAL_CHAPTERS}개 챕터 · ${TOTAL_LESSONS}개 강의</text>
   </g>
 
   <text x="${W - 60}" y="${H - 44}" text-anchor="end" font-family="Pretendard, sans-serif" font-size="22" font-weight="600" fill="#6B7390">bootcamp.dreamitbiz.com</text>

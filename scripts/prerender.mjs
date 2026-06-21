@@ -5,15 +5,17 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
-import { CHAPTERS, TRACKS } from '../src/data/curriculum.js'
+import { CHAPTERS, TRACKS, TOTAL_CHAPTERS, TOTAL_LESSONS } from '../src/data/curriculum.js'
 import { PROJECTS } from '../src/data/projects.js'
-import { GUIDES } from '../src/data/coaching.js'
+import { GUIDES, COACHING, APPENDIX } from '../src/data/coaching.js'
+import { TOTAL_TERMS, TOTAL_QUIZ } from '../src/data/review.js'
+import { TOTAL_TIPS } from '../src/data/tips.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DIST = resolve(__dirname, '../dist')
 const ORIGIN = 'https://bootcamp.dreamitbiz.com'
 const BASE = 'DreamIT 부트캠프'
-const DEFAULT_DESC = '웹 기초(HTML·CSS·JS)부터 React·AI·실전 배포까지 — 27개 챕터 137개 강의의 실무형 웹 개발 학습 플랫폼.'
+const DEFAULT_DESC = `웹 기초(HTML·CSS·JS)부터 React·AI·실전 배포까지 — ${TOTAL_CHAPTERS}개 챕터 ${TOTAL_LESSONS}개 강의의 실무형 웹 개발 학습 플랫폼.`
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
@@ -21,14 +23,14 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const routes = []
 const add = (path, title, desc) => routes.push({ path, title, desc: desc || DEFAULT_DESC })
 
-add('/curriculum', '전체 커리큘럼', '웹 기초·React·AI·배포 4개 트랙 27개 챕터 137개 강의를 한눈에.')
+add('/curriculum', '전체 커리큘럼', `웹 기초·React·AI·배포 4개 트랙 ${TOTAL_CHAPTERS}개 챕터 ${TOTAL_LESSONS}개 강의를 한눈에.`)
 for (const tr of Object.values(TRACKS)) add(`/track/${tr.id}`, `${tr.label} 트랙`, tr.desc)
 for (const ch of CHAPTERS) add(`/lesson/${ch.id}`, ch.title, ch.summary)
-add('/projects', '프로젝트', '입문·중급·고급 18개 실전 프로젝트 — 실제 구현 코드와 동작 데모.')
+add('/projects', '프로젝트', `입문·중급·고급 ${PROJECTS.length}개 실전 프로젝트 — 실제 구현 코드와 동작 데모.`)
 for (const p of PROJECTS) add(`/project/${p.id}`, `${p.title} 프로젝트`, p.summary)
-add('/quiz', '복습·퀴즈', '핵심 용어 216개와 퀴즈 135문항으로 이해도를 검증하세요.')
+add('/quiz', '복습·퀴즈', `핵심 용어 ${TOTAL_TERMS}개와 퀴즈 ${TOTAL_QUIZ}문항으로 이해도를 검증하세요.`)
 add('/resources', '학습 자료·실습', '전 챕터 강의 목차와 실습 예제를 한곳에서.')
-add('/coaching', '코칭·가이드', '기술 코칭 4회차와 부록 가이드 9종, 실전 Tips! 17개.')
+add('/coaching', '코칭·가이드', `기술 코칭 ${COACHING.length}회차와 부록 가이드 ${APPENDIX.length}종, 실전 Tips! ${TOTAL_TIPS}개.`)
 for (const g of GUIDES) add(`/coaching/${g.id}`, g.title, g.summary)
 add('/about', '소개', 'DreamIT 부트캠프의 학습 철학과 4개 트랙 소개.')
 
