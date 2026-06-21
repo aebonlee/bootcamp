@@ -58,7 +58,8 @@ export default function Home() {
           </h1>
           <div style={{ height: 1, background: 'rgba(10,11,13,0.14)', margin: 'clamp(30px,5vw,52px) 0 clamp(20px,3vw,26px)', transformOrigin: 'left', animation: 'growLine 1s .3s both' }} />
           <p style={{ margin: 0, maxWidth: 580, fontSize: 'clamp(15px,2vw,19px)', lineHeight: 1.7, color: '#6B7178', animation: 'heroIn .8s .25s both' }}>
-            JSX 기초부터 상태관리·인증·배포까지, 그리고 FastAPI와 Hugging Face로 만드는 생성형 AI 웹 서비스까지. 실무로 이어지는 웹 개발의 모든 것을 한 곳에서 학습하세요.
+            JSX 기초부터 상태관리·인증·배포까지, 그리고 FastAPI와 Hugging Face로 만드는 생성형 AI 웹 서비스까지.<br />
+            실무로 이어지는 웹 개발의 모든 것을 한 곳에서 학습하세요.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 'clamp(26px,4vw,38px)', animation: 'heroIn .8s .35s both' }}>
             <Link to="/curriculum" className="cta-pill" style={{ padding: '16px 32px', borderRadius: 60, background: grad.blue, color: '#fff', fontSize: 16, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 9, boxShadow: '0 10px 26px rgba(26,69,216,0.28)' }}>
@@ -94,7 +95,8 @@ export default function Home() {
               네 개의 <span style={{ fontWeight: 800 }}>전문 트랙</span>
             </h2>
             <p style={{ margin: '22px auto 0', maxWidth: 620, fontSize: 'clamp(15px,2vw,18px)', lineHeight: 1.7, color: '#9CA2AD' }}>
-              웹 기초 · React · AI · 배포, 각자의 목표에 맞춰 선택하세요. 모든 트랙이 <b style={{ color: '#fff' }}>개념 → 실습 → 프로젝트</b> 흐름으로 완성됩니다.
+              웹 기초 · React · AI · 배포, 각자의 목표에 맞춰 선택하세요.<br />
+              모든 트랙이 <b style={{ color: '#fff' }}>개념 → 실습 → 프로젝트</b> 흐름으로 완성됩니다.
             </p>
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 'clamp(16px,2vw,24px)' }}>
@@ -135,8 +137,9 @@ export default function Home() {
             <h2 style={{ margin: '18px 0 0', fontSize: 'clamp(36px,6vw,80px)', lineHeight: 0.98, letterSpacing: '-0.035em', textTransform: 'uppercase', fontWeight: 300 }}>
               Learn<br />Like a<br /><span style={{ fontWeight: 800 }}>Pro</span>
             </h2>
-            <p style={{ margin: '28px 0 0', maxWidth: 360, fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.9)' }}>
-              강의를 위한 강의가 아니라, 실제로 만들 수 있게 되는 학습. 현업 프로젝트의 순서 그대로 배웁니다.
+            <p style={{ margin: '28px 0 0', maxWidth: 460, fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.9)', wordBreak: 'keep-all' }}>
+              강의를 위한 강의가 아니라, 실제로 만들 수 있게 되는 학습.<br />
+              현업 프로젝트의 순서 그대로 배웁니다.
             </p>
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,250px),1fr))', gap: 'clamp(16px,1.8vw,22px)' }}>

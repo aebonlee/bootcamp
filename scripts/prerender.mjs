@@ -58,3 +58,20 @@ for (const r of routes) {
   count++
 }
 console.log(`✓ prerendered ${count} routes with route-specific meta`)
+
+// sitemap.xml — 홈 + 프리렌더 라우트 전체(인증 페이지 제외, 항상 동기화)
+function priority(path) {
+  if (path === '/') return '1.0'
+  if (/^\/(curriculum|track\/|projects$|quiz|resources|coaching$|about)/.test(path)) return '0.8'
+  return '0.6' // 개별 강의/프로젝트/가이드
+}
+const urls = ['/', ...routes.map((r) => r.path)]
+const sitemap =
+  '<?xml version="1.0" encoding="UTF-8"?>\n' +
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+  urls
+    .map((p) => `  <url><loc>${esc(ORIGIN + p)}</loc><changefreq>weekly</changefreq><priority>${priority(p)}</priority></url>`)
+    .join('\n') +
+  '\n</urlset>\n'
+writeFileSync(resolve(DIST, 'sitemap.xml'), sitemap)
+console.log(`✓ sitemap.xml with ${urls.length} urls`)
